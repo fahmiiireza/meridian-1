@@ -6,9 +6,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "node setup.js",
-    "start": "nohup node index.js > meridian.log 2>&1 & echo \"Started with PID: $!\"",
-    "stop": "pkill -f 'node index.js' && echo 'Stopped' || echo 'Not running'",
-    "logs": "tail -f meridian.log",
+    "start": "node index.js",
     "dev": "DRY_RUN=true node index.js",
     "test:screen": "node test/test-screening.js",
     "test:agent": "DRY_RUN=true node test/test-agent.js",
