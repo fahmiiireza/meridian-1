@@ -42,15 +42,48 @@ export function isEnabled() {
   return !!TOKEN;
 }
 
+export async function sendTyping() {
+  if (!TOKEN || !chatId) return;
+  try {
+    await fetch(`${BASE}/sendChatAction`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, action: "typing" }),
+    });
+  } catch { /**/ }
+}
+
+/**
+ * Convert markdown-style formatting to Telegram HTML.
+ * Handles **bold**, *italic*, `code`, and ```code blocks```.
+ */
+function mdToTelegramHTML(text) {
+  let out = String(text);
+  // Escape HTML entities first (but not tags we'll create)
+  out = out.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  // Code blocks: ```...```
+  out = out.replace(/```[\s\S]*?```/g, (m) => `<pre>${m.slice(3, -3).trim()}</pre>`);
+  // Inline code: `...`
+  out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+  // Bold: **...**
+  out = out.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+  // Italic: *...*
+  out = out.replace(/\*(.+?)\*/g, "<i>$1</i>");
+  return out;
+}
+
 export async function sendMessage(text) {
   if (!TOKEN || !chatId) return;
+  const hasMarkdown = /\*\*|`/.test(text);
+  const formatted = hasMarkdown ? mdToTelegramHTML(text) : String(text);
   try {
     const res = await fetch(`${BASE}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: chatId,
-        text: String(text).slice(0, 4096),
+        text: formatted.slice(0, 4096),
+        ...(hasMarkdown ? { parse_mode: "HTML" } : {}),
       }),
     });
     if (!res.ok) {

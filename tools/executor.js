@@ -16,6 +16,7 @@ import { setPositionInstruction } from "../state.js";
 import { getPoolMemory, addPoolNote } from "../pool-memory.js";
 import { addStrategy, listStrategies, getStrategy, setActiveStrategy, removeStrategy } from "../strategy-library.js";
 import { addToBlacklist, removeFromBlacklist, listBlacklist } from "../token-blacklist.js";
+import { isEnabled as hiveMindEnabled, getHivePulse, queryPoolConsensus, queryLessonConsensus, queryThresholdConsensus } from "../hive-mind.js";
 import { addSmartWallet, removeSmartWallet, listSmartWallets, checkSmartWalletsOnPool } from "../smart-wallets.js";
 import { getTokenInfo, getTokenHolders, getTokenNarrative } from "./token.js";
 import { config, reloadScreeningThresholds } from "../config.js";
@@ -94,6 +95,26 @@ const toolMap = {
   add_to_blacklist: addToBlacklist,
   remove_from_blacklist: removeFromBlacklist,
   list_blacklist: listBlacklist,
+  get_hive_pulse: async () => {
+    if (!hiveMindEnabled()) return { error: "Hive Mind is not connected. Set hiveMindUrl and hiveMindApiKey in config." };
+    const data = await getHivePulse();
+    return data || { error: "Failed to fetch Hive Mind pulse" };
+  },
+  get_hive_pool_consensus: async ({ pool_address }) => {
+    if (!hiveMindEnabled()) return { error: "Hive Mind is not connected." };
+    const data = await queryPoolConsensus(pool_address);
+    return data || { error: "No consensus data available for this pool" };
+  },
+  get_hive_lesson_consensus: async ({ tags } = {}) => {
+    if (!hiveMindEnabled()) return { error: "Hive Mind is not connected." };
+    const data = await queryLessonConsensus(tags);
+    return data || { error: "No lesson consensus available" };
+  },
+  get_hive_threshold_consensus: async () => {
+    if (!hiveMindEnabled()) return { error: "Hive Mind is not connected." };
+    const data = await queryThresholdConsensus();
+    return data || { error: "No threshold consensus available" };
+  },
   add_lesson: ({ rule, tags, pinned, role }) => {
     addLesson(rule, tags || [], { pinned: !!pinned, role: role || null });
     return { saved: true, rule, pinned: !!pinned, role: role || "all" };

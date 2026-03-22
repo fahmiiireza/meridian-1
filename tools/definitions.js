@@ -1026,5 +1026,74 @@ Blacklisted tokens are filtered BEFORE the LLM even sees pool candidates.`,
         properties: {}
       }
     }
-  }
+  },
+
+  // ─── Hive Mind ────────────────────────────────────────────────
+
+  {
+    type: "function",
+    function: {
+      name: "get_hive_pulse",
+      description: `Get global Hive Mind network stats — total agents, active agents, total deploys, lessons shared, and network-wide performance.
+Use when the user asks about Hive Mind status, how many agents are connected, or network health.
+Requires Hive Mind to be enabled (hiveMindUrl + hiveMindApiKey in config).`,
+      parameters: {
+        type: "object",
+        properties: {}
+      }
+    }
+  },
+
+  {
+    type: "function",
+    function: {
+      name: "get_hive_pool_consensus",
+      description: `Query Hive Mind consensus for a specific pool — how many agents have deployed, their win rate, and average PnL.
+Use before deploying to see what the network thinks about a pool, or when the user asks about collective performance on a pool.
+Only returns data if >= 3 agents have reported on the pool.`,
+      parameters: {
+        type: "object",
+        properties: {
+          pool_address: {
+            type: "string",
+            description: "The pool address to query consensus for"
+          }
+        },
+        required: ["pool_address"]
+      }
+    }
+  },
+
+  {
+    type: "function",
+    function: {
+      name: "get_hive_lesson_consensus",
+      description: `Query Hive Mind for consensus lessons shared by other agents, optionally filtered by tags.
+Use when the user asks what other agents have learned, or to get collective wisdom on a topic (e.g. "screening", "oor", "fees").`,
+      parameters: {
+        type: "object",
+        properties: {
+          tags: {
+            type: "array",
+            items: { type: "string" },
+            description: "Optional tags to filter lessons (e.g. ['screening', 'management', 'oor'])"
+          }
+        }
+      }
+    }
+  },
+
+  {
+    type: "function",
+    function: {
+      name: "get_hive_threshold_consensus",
+      description: `Query Hive Mind for median screening thresholds across all agents.
+Use when the user asks how their thresholds compare to the network, or wants to calibrate their settings.
+Returns median values for minTvl, minHolders, takeProfitFeePct, stopLossPct, etc.`,
+      parameters: {
+        type: "object",
+        properties: {}
+      }
+    }
+  },
 ];

@@ -10,6 +10,7 @@
  * @returns {string} - Complete system prompt
  */
 import { config } from "./config.js";
+import { isEnabled as hiveMindEnabled } from "./hive-mind.js";
 
 export function buildSystemPrompt(agentType, portfolio, positions, stateSummary = null, lessons = null, perfSummary = null) {
   const s = config.screening;
@@ -25,6 +26,7 @@ Portfolio: ${JSON.stringify(portfolio, null, 2)}
 Open Positions: ${JSON.stringify(positions, null, 2)}
 Memory: ${JSON.stringify(stateSummary, null, 2)}
 Performance: ${perfSummary ? JSON.stringify(perfSummary, null, 2) : "No closed positions yet"}
+Hive Mind: ${hiveMindEnabled() ? "Connected — sharing anonymous performance data and receiving consensus wisdom from other agents" : "Not connected"}
 
 Config: ${JSON.stringify({
   screening: config.screening,

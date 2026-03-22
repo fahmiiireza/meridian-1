@@ -9,7 +9,7 @@ import { getTopCandidates } from "./tools/screening.js";
 import { config, reloadScreeningThresholds, computeDeployAmount } from "./config.js";
 import { evolveThresholds, getPerformanceSummary } from "./lessons.js";
 import { registerCronRestarter } from "./tools/executor.js";
-import { startPolling, stopPolling, sendMessage, sendHTML, notifyOutOfRange, isEnabled as telegramEnabled } from "./telegram.js";
+import { startPolling, stopPolling, sendMessage, sendHTML, sendTyping, notifyOutOfRange, isEnabled as telegramEnabled } from "./telegram.js";
 import { generateBriefing } from "./briefing.js";
 import { getLastBriefingDate, setLastBriefingDate, getTrackedPosition } from "./state.js";
 import { getActiveStrategy } from "./strategy-library.js";
@@ -103,6 +103,7 @@ export function startCronJobs() {
     _managementBusy = true;
     timers.managementLastRun = Date.now();
     log("cron", `Starting management cycle [model: ${config.llm.managementModel}]`);
+    if (telegramEnabled()) sendTyping().catch(() => {});
     let mgmtReport = null;
     let positions = [];
     try {
@@ -170,6 +171,7 @@ export function startCronJobs() {
         }
       } catch { /* hive is best-effort */ }
 
+      if (telegramEnabled()) sendTyping().catch(() => {});
       const { content } = await agentLoop(`
 MANAGEMENT CYCLE — ${positions.length} position(s)
 
@@ -194,10 +196,34 @@ Only call tools if a position needs to be CLOSED or fees need to be CLAIMED.
 If all positions STAY and no fees to claim, just write the report with no tool calls.
 
 REPORT FORMAT (one per position):
-**[PAIR]** | Age: [X]m | Unclaimed: $[X] | Claimed: $[X] | PnL: [X]%
-**Rule:** [number or "none"] | **Decision:** STAY/CLOSE | **Reason:** [1 sentence]
+[PAIR] | Age: [X]m | Unclaimed: $[X] | Claimed: $[X] | PnL: [X]%
+Rule: [number or "none"] | Decision: STAY/CLOSE | Reason: [1 sentence]
+Decision: HOLD/CLOSE — [1-2 sentence summary of your reasoning]
       `, config.llm.maxSteps, [], "MANAGER", config.llm.managementModel, 4096);
-      mgmtReport = content;
+
+      if (telegramEnabled()) sendTyping().catch(() => {});
+      // Build formatted Telegram message with progress bars
+      const progressBar = (value, max, width = 10) => {
+        const ratio = Math.min(Math.max(Math.abs(value) / Math.abs(max), 0), 1);
+        const filled = Math.round(ratio * width);
+        return "█".repeat(filled) + "░".repeat(width - filled);
+      };
+
+      const positionVisuals = positionData.map((p) => {
+        const pnl = p.pnl;
+        if (!pnl) return "";
+        const pnlPct = parseFloat(pnl.pnl_pct) || 0;
+        const unclaimed = parseFloat(pnl.unclaimed_fee_usd) || 0;
+        const claimTarget = config.management.minClaimAmount || 10;
+        const stopLoss = Math.abs(config.management.emergencyPriceDropPct || -50);
+        return [
+          `📊 PnL: [${progressBar(pnlPct, stopLoss)}] ${pnlPct >= 0 ? "+" : ""}${pnlPct}%`,
+          `💎 Fee: [${progressBar(unclaimed, claimTarget)}] $${unclaimed.toFixed(2)} / $${claimTarget} target`,
+        ].join("\n");
+      }).filter(Boolean).join("\n\n");
+
+      const nextMin = config.schedule.managementIntervalMin;
+      mgmtReport = [content, positionVisuals, `⏰ Next: ${nextMin}m`].filter(Boolean).join("\n\n");
     } catch (error) {
       log("cron_error", `Management cycle failed: ${error.message}`);
       mgmtReport = `Management cycle failed: ${error.message}`;
@@ -222,12 +248,16 @@ REPORT FORMAT (one per position):
     try {
       [prePositions, preBalance] = await Promise.all([getMyPositions(), getWalletBalances()]);
       if (prePositions.total_positions >= config.risk.maxPositions) {
-        log("cron", `Screening skipped — max positions reached (${prePositions.total_positions}/${config.risk.maxPositions})`);
+        const msg = `Screening skipped — max positions reached (${prePositions.total_positions}/${config.risk.maxPositions})`;
+        log("cron", msg);
+        if (telegramEnabled()) sendMessage(`🔍 Screening Cycle\n\n${msg}`).catch(() => {});
         return;
       }
       const minRequired = config.management.deployAmountSol + config.management.gasReserve;
       if (preBalance.sol < minRequired) {
-        log("cron", `Screening skipped — insufficient SOL (${preBalance.sol.toFixed(3)} < ${minRequired} needed for deploy + gas)`);
+        const msg = `Screening skipped — insufficient SOL (${preBalance.sol.toFixed(3)} < ${minRequired} needed for deploy + gas)`;
+        log("cron", msg);
+        if (telegramEnabled()) sendMessage(`🔍 Screening Cycle\n\n${msg}`).catch(() => {});
         return;
       }
     } catch (e) {
@@ -252,11 +282,11 @@ REPORT FORMAT (one per position):
         : `No active strategy — use default bid_ask, bins_above: 0, SOL only.`;
 
       // Pre-load top candidates + all recon data in parallel (saves 4-6 LLM steps)
-      const topCandidates = await getTopCandidates({ limit: 5 }).catch(() => null);
+      const topCandidates = await getTopCandidates({ limit: 3 }).catch(() => null);
       const candidates = topCandidates?.candidates || topCandidates?.pools || [];
 
       const candidateBlocks = [];
-      for (const pool of candidates.slice(0, 5)) {
+      for (const pool of candidates.slice(0, 3)) {
         const mint = pool.base?.mint;
         const [smartWallets, holders, narrative, tokenInfo, poolMemory] = await Promise.allSettled([
             checkSmartWalletsOnPool({ pool_address: pool.pool }),
@@ -476,7 +506,7 @@ if (isTTY) {
     const [wallet, positions, { candidates, total_eligible, total_screened }] = await Promise.all([
       getWalletBalances(),
       getMyPositions(),
-      getTopCandidates({ limit: 5 }),
+      getTopCandidates({ limit: 3 }),
     ]);
 
     startupCandidates = candidates;
@@ -629,7 +659,7 @@ Commands:
 
     if (input === "/candidates") {
       await runBusy(async () => {
-        const { candidates, total_eligible, total_screened } = await getTopCandidates({ limit: 5 });
+        const { candidates, total_eligible, total_screened } = await getTopCandidates({ limit: 3 });
         startupCandidates = candidates;
         console.log(`\nTop pools (${total_eligible} eligible from ${total_screened} screened):\n`);
         console.log(formatCandidates(candidates));
