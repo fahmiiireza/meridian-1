@@ -20,6 +20,7 @@ import {
 } from "../state.js";
 import { recordPerformance } from "../lessons.js";
 import { normalizeMint } from "./wallet.js";
+import { getStrategyProfile } from "../strategy-library.js";
 
 // ─── Lazy SDK loader ───────────────────────────────────────────
 // @meteora-ag/dlmm → @coral-xyz/anchor uses CJS directory imports
@@ -98,6 +99,7 @@ export async function deployPosition({
   strategy,
   bins_below,
   bins_above,
+  strategy_id,
   // optional pool metadata for learning (passed by agent when available)
   pool_name,
   bin_step,
@@ -120,6 +122,7 @@ export async function deployPosition({
       would_deploy: {
         pool_address,
         strategy: activeStrategy,
+        strategy_id: strategy_id || null,
         bins_below: activeBinsBelow,
         bins_above: activeBinsAbove,
         amount_x: amount_x || 0,
@@ -236,6 +239,7 @@ export async function deployPosition({
       pool: pool_address,
       pool_name,
       strategy: activeStrategy,
+      strategy_profile: strategy_id ? getStrategyProfile(strategy_id) : null,
       bin_range: { min: minBinId, max: maxBinId, bins_below: activeBinsBelow, bins_above: activeBinsAbove },
       bin_step,
       volatility,
@@ -262,6 +266,7 @@ export async function deployPosition({
       bin_step: actualBinStep,
       base_fee: base_fee ?? null,
       strategy: activeStrategy,
+      strategy_id: strategy_id || null,
       wide_range: isWideRange,
       amount_x: finalAmountX,
       amount_y: finalAmountY,

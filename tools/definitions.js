@@ -128,16 +128,17 @@ Always call this before deploying a position to get the freshest price.`,
 
 PRIORITY ORDER for strategy and bins:
 1. User explicitly specifies → always follow exactly (user override is absolute)
-2. No user spec → use active strategy's lp_strategy and choose bins based on volatility
+2. No user spec → use the expert playbook strategy recommendation. Pass the strategy_id.
 
 HARD RULES:
-- Never use 'curve'.
 - Bin Step: Only deploy in pools with bin_step between 80 and 125.
+- MANDATORY: Before deploying, you MUST have studied top LPers (study_top_lpers) on this pool.
 
 Guidelines (only when user hasn't specified):
-- Strategy: use the active strategy's lp_strategy field (bid_ask or spot)
-- Bins: choose 35–69 for standard volatility; up to 350 for wide-range strategies. Max 1400 total.
-- Deposit: Can be single-sided (SOL only or Base only) or dual-sided.
+- Strategy: use the recommended expert strategy's lp_strategy (bid_ask, spot, or curve)
+- Bins: depends on strategy — 5-20 for scalps, 35-100 for standard, 150-250 for wide grind. Max 1400 total.
+- Deposit: Usually single-sided SOL. Dual-sided only for megumi_ranging or explicit user request.
+- Always pass strategy_id so exit rules are tracked per position.
 
 WARNING: This executes a real on-chain transaction. Check DRY_RUN mode.`,
       parameters: {
@@ -161,8 +162,12 @@ WARNING: This executes a real on-chain transaction. Check DRY_RUN mode.`,
           },
           strategy: {
             type: "string",
-            enum: ["bid_ask", "spot"],
-            description: "DLMM strategy type. If user specifies, use exactly what they said. Otherwise use the active strategy's lp_strategy field."
+            enum: ["bid_ask", "spot", "curve"],
+            description: "DLMM strategy type. If user specifies, use exactly what they said. Otherwise use the expert playbook recommendation. 'curve' is only for void_degen_curve strategy (extreme risk, upside-concentrated)."
+          },
+          strategy_id: {
+            type: "string",
+            description: "Expert strategy ID from the playbook (e.g. 'yunss_classic', 'panda_wide_spot', 'void_npc'). Stores the strategy's exit rules with the position for strategy-aware management."
           },
           bins_below: {
             type: "number",

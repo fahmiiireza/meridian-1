@@ -12,7 +12,8 @@ import { registerCronRestarter } from "./tools/executor.js";
 import { startPolling, stopPolling, sendMessage, sendHTML, sendTyping, notifyOutOfRange, isEnabled as telegramEnabled } from "./telegram.js";
 import { generateBriefing } from "./briefing.js";
 import { getLastBriefingDate, setLastBriefingDate, getTrackedPosition } from "./state.js";
-import { getActiveStrategy } from "./strategy-library.js";
+import { getActiveStrategy, recommendStrategy } from "./strategy-library.js";
+import { studyTopLPers } from "./tools/study.js";
 import { recordPositionSnapshot, recallForPool } from "./pool-memory.js";
 import { checkSmartWalletsOnPool } from "./smart-wallets.js";
 import { getTokenHolders, getTokenNarrative, getTokenInfo } from "./tools/token.js";
@@ -146,6 +147,8 @@ export function startCronJobs() {
       // Build pre-loaded position blocks for the LLM
       const positionBlocks = positionData.map((p) => {
         const pnl = p.pnl;
+        const tracked = getTrackedPosition(p.position);
+        const sp = tracked?.strategy_profile;
         const lines = [
           `POSITION: ${p.pair} (${p.position})`,
           `  pool: ${p.pool}`,
@@ -153,6 +156,7 @@ export function startCronJobs() {
           pnl ? `  pnl_pct: ${pnl.pnl_pct}% | pnl_usd: $${pnl.pnl_usd} | unclaimed_fees: $${pnl.unclaimed_fee_usd} | claimed_fees: $${Math.max(0, (pnl.all_time_fees_usd || 0) - (pnl.unclaimed_fee_usd || 0)).toFixed(2)} | value: $${pnl.current_value_usd} | fee_per_tvl_24h: ${pnl.fee_per_tvl_24h ?? "?"}%` : `  pnl: fetch failed`,
           pnl ? `  bins: lower=${pnl.lower_bin} upper=${pnl.upper_bin} active=${pnl.active_bin}` : null,
           p.instruction ? `  instruction: "${p.instruction}"` : null,
+          sp ? `  strategy: ${sp.id} (${sp.name}, by ${sp.author}) | exit: TP>=${sp.exit.take_profit_pct ?? "none"}%, SL<=${sp.exit.stop_loss_pct ?? "none"}%, OOR>=${sp.exit.oor_wait_minutes ?? "none"}m${sp.exit.max_hold_minutes ? `, max_hold=${sp.exit.max_hold_minutes}m` : ""}${sp.exit.min_fee_per_tvl_24h ? `, min_fee_tvl>=${sp.exit.min_fee_per_tvl_24h}%` : ""}` : null,
           p.recall ? `  memory: ${p.recall}` : null,
         ].filter(Boolean);
         return lines.join("\n");
@@ -178,11 +182,23 @@ MANAGEMENT CYCLE — ${positions.length} position(s)
 PRE-LOADED POSITION DATA (no fetching needed):
 ${positionBlocks}${hivePatterns}
 
-HARD CLOSE RULES — apply in order, first match wins:
-1. instruction set AND condition met → CLOSE (highest priority)
-2. instruction set AND condition NOT met → HOLD, skip remaining rules
-3. pnl_pct <= ${config.management.emergencyPriceDropPct}% → CLOSE (stop loss)
-4. pnl_pct >= ${config.management.takeProfitFeePct}% → CLOSE (take profit)
+CLOSE RULES — apply in order, first match wins:
+
+TIER 1 — INSTRUCTIONS (highest priority):
+1. instruction set AND condition met → CLOSE
+2. instruction set AND condition NOT met → HOLD, skip all remaining rules
+
+TIER 2 — STRATEGY EXIT RULES (if position has strategy_profile):
+Check the strategy-specific exit thresholds shown in each position's "strategy:" line.
+S1. strategy take_profit_pct is set AND pnl_pct >= it → CLOSE (strategy TP)
+S2. strategy stop_loss_pct is set AND pnl_pct <= it → CLOSE (strategy SL)
+S3. strategy max_hold_minutes is set AND age_minutes >= it → CLOSE (strategy time limit — scalps MUST close on time!)
+S4. strategy oor_wait_minutes is set AND oor_minutes >= it → CLOSE (strategy OOR)
+S5. strategy min_fee_per_tvl_24h is set AND fee_per_tvl < it AND age >= 60 → CLOSE (strategy fee floor)
+
+TIER 3 — GLOBAL SAFETY NETS (fallback if no strategy rules or position has no strategy_profile):
+3. pnl_pct <= ${config.management.emergencyPriceDropPct}% → CLOSE (emergency stop loss)
+4. pnl_pct >= ${config.management.takeProfitFeePct}% → CLOSE (global take profit)
 5. active_bin > upper_bin + ${config.management.outOfRangeBinsToClose} → CLOSE (pumped far above range)
 6. active_bin > upper_bin AND oor_minutes >= ${config.management.outOfRangeWaitMinutes} → CLOSE (stale above range)
 7. fee_per_tvl_24h < ${config.management.minFeePerTvl24h} AND age_minutes >= 60 → CLOSE (fee yield too low)
@@ -288,12 +304,13 @@ Decision: HOLD/CLOSE — [1-2 sentence summary of your reasoning]
       const candidateBlocks = [];
       for (const pool of candidates.slice(0, 3)) {
         const mint = pool.base?.mint;
-        const [smartWallets, holders, narrative, tokenInfo, poolMemory] = await Promise.allSettled([
+        const [smartWallets, holders, narrative, tokenInfo, poolMemory, lperStudy] = await Promise.allSettled([
             checkSmartWalletsOnPool({ pool_address: pool.pool }),
             mint ? getTokenHolders({ mint, limit: 100 }) : Promise.resolve(null),
             mint ? getTokenNarrative({ mint }) : Promise.resolve(null),
             mint ? getTokenInfo({ query: mint }) : Promise.resolve(null),
             Promise.resolve(recallForPool(pool.pool)),
+            studyTopLPers({ pool_address: pool.pool, limit: 4 }).catch(() => null),
           ]);
 
           const sw   = smartWallets.status === "fulfilled" ? smartWallets.value : null;
@@ -301,19 +318,27 @@ Decision: HOLD/CLOSE — [1-2 sentence summary of your reasoning]
           const n    = narrative.status === "fulfilled" ? narrative.value : null;
           const ti   = tokenInfo.status === "fulfilled" ? tokenInfo.value?.results?.[0] : null;
           const mem  = poolMemory.value;
+          const lp   = lperStudy.status === "fulfilled" ? lperStudy.value : null;
 
           const priceChange = ti?.stats_1h?.price_change;
           const netBuyers = ti?.stats_1h?.net_buyers;
 
+          // Strategy recommendation based on pool conditions + LPer patterns
+          const stratRecs = recommendStrategy(pool, lp?.patterns || null);
+          const topRec = stratRecs[0];
+
           // Build compact block
           const lines = [
             `POOL: ${pool.name} (${pool.pool})`,
-            `  metrics: bin_step=${pool.bin_step}, fee_tvl=${pool.fee_active_tvl_ratio}, vol=$${pool.volume_window}, tvl=$${pool.active_tvl}, vol=${pool.volatility}, organic=${pool.organic_score}, mcap=$${pool.mcap}`,
+            `  metrics: bin_step=${pool.bin_step}, fee_tvl=${pool.fee_active_tvl_ratio}, vol=$${pool.volume_window}, tvl=$${pool.active_tvl}, volatility=${pool.volatility}, organic=${pool.organic_score}, mcap=$${pool.mcap}`,
             sw?.in_pool?.length ? `  smart_wallets: ${sw.in_pool.map(w => w.name).join(", ")} ✓` : null,
             h ? `  holders: top10=${h.top_10_real_holders_pct ?? "?"}%, bundlers=${h.bundlers_pct_in_top_100 ?? "?"}%, fees=${h.global_fees_sol ?? "?"}SOL` : null,
             priceChange != null ? `  1h: price${priceChange >= 0 ? "+" : ""}${priceChange}%, net_buyers=${netBuyers ?? "?"}` : null,
             n?.narrative ? `  narrative: ${n.narrative.slice(0, 200)}` : null,
             mem ? `  memory: ${mem.slice(0, 150)}` : null,
+            lp?.patterns ? `  top_lpers: ${lp.patterns.top_lper_count} credible | avg_hold=${lp.patterns.avg_hold_hours}h | win_rate=${lp.patterns.avg_win_rate ? Math.round(lp.patterns.avg_win_rate * 100) : "?"}% | scalpers=${lp.patterns.scalper_count} holders=${lp.patterns.holder_count}` : `  top_lpers: no data`,
+            topRec ? `  strategy_rec: ${topRec.id} (${topRec.name}, ${topRec.lp_strategy}, score=${topRec.score}) — ${topRec.reason}` : null,
+            stratRecs.length > 1 ? `  alt_strategies: ${stratRecs.slice(1).map(r => `${r.id}(${r.score})`).join(", ")}` : null,
           ].filter(Boolean);
 
           candidateBlocks.push(lines.join("\n"));
@@ -349,8 +374,17 @@ DECISION RULES:
 
 STEPS:
 1. Pick the best candidate. If none pass, report why and stop.
-2. Call deploy_position with ${deployAmount} SOL. Set bins_below = round(35 + (volatility/5)*34) clamped to [35,69].
-3. Report result.
+2. Review the strategy_rec for your chosen pool. Validate against top_lpers data:
+   - If top LPers are scalping (avg_hold < 1h), prefer short-hold strategies (void_hyperfocused, yunss_tight_scalp).
+   - If top LPers are holding (avg_hold > 4h), prefer patient strategies (yunss_classic, megumi_ranging, panda_wide_spot).
+   - If no LPer data, trust the strategy recommendation.
+3. Call study_top_lpers if not pre-loaded (MANDATORY — never deploy without studying top LPers).
+4. Call deploy_position with ${deployAmount} SOL. Use the chosen strategy's bins and lp_strategy. Always pass strategy_id.
+   - For yunss_classic: bins_below = round(volatility × 10), clamped to [35, 100].
+   - For panda_wide_spot: bins_below = 150-250 (wide range).
+   - For scalp strategies: bins_below = 5-20.
+   - For void_npc / megumi_ranging: bins_below = 40-70.
+5. Report: pool name, strategy chosen, bins, and reasoning.
       `, config.llm.maxSteps, [], "SCREENER", config.llm.screeningModel, 2048);
       screenReport = content;
     } catch (error) {

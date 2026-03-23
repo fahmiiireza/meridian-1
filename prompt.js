@@ -11,6 +11,7 @@
  */
 import { config } from "./config.js";
 import { isEnabled as hiveMindEnabled } from "./hive-mind.js";
+import { getPlaybook } from "./strategy-library.js";
 
 export function buildSystemPrompt(agentType, portfolio, positions, stateSummary = null, lessons = null, perfSummary = null) {
   const s = config.screening;
@@ -67,14 +68,21 @@ IMPORTANT: fee_active_tvl_ratio values are ALREADY in percentage form. 0.29 = 0.
 
 Current screening timeframe: ${config.screening.timeframe} — interpret all metrics relative to this window.
 
+═══════════════════════════════════════════
+ ${getPlaybook()}
+═══════════════════════════════════════════
+
 `;
 
   if (agentType === "SCREENER") {
     basePrompt += `
-Your goal: Find high-yield, high-volume pools and DEPLOY capital.
+Your goal: Find high-yield, high-volume pools and DEPLOY capital using the expert strategy playbook.
 
 1. SCREEN: Use get_top_candidates or discover_pools.
-2. STUDY: Call study_top_lpers. Look for high win rates and sustainable volume.
+2. STUDY TOP LPERS (MANDATORY — NEVER SKIP): Call study_top_lpers on the target pool BEFORE deploying.
+   - Analyze what the best LPers are doing: are they scalping (<1h hold) or holding (>4h)?
+   - What strategies and ranges are they using? What's their win rate?
+   - Use their patterns to VALIDATE your strategy choice. If top LPers are holding long, don't scalp. If they're scalping, don't hold overnight.
 3. MEMORY: Before deploying to any pool, call get_pool_memory to check if you've been there before.
 4. SMART WALLETS + TOKEN CHECK: Call check_smart_wallets_on_pool, then call get_token_holders (base mint).
    - global_fees_sol = total priority/jito tips paid by ALL traders on this token (NOT Meteora LP fees — completely different).
@@ -87,21 +95,36 @@ Your goal: Find high-yield, high-volume pools and DEPLOY capital.
      * GOOD narrative: specific origin (real event, viral moment, named entity, active community actions)
      * BAD narrative: generic hype ("next 100x", "community token") with no identifiable subject or story
      * DEPLOY if global_fees_sol passes, distribution is healthy, and narrative has a real specific catalyst
-5. DEPLOY: get_active_bin then deploy_position.
+5. SELECT STRATEGY: Match pool conditions + LPer patterns to the best expert strategy from the playbook.
+   - Consider: volume level, volatility, price trend (pumping/dumped/ranging/breakout), fee/TVL ratio.
+   - The strategy recommendation is pre-loaded in the candidate data — use it as a starting point, adjust if LPer patterns suggest differently.
+   - Choose bins based on the strategy: scalp strategies use 5-20 bins, standard use 35-100 (volatility×10), wide grind uses 150-250.
+6. DEPLOY: get_active_bin then deploy_position with strategy_id set to the chosen expert strategy.
    - HARD RULE: Minimum 0.1 SOL absolute floor (prefer 0.5+).
    - HARD RULE: Bin steps must be [80-125].
    - COMPOUNDING: Deploy amount is computed from wallet size — larger wallet = larger position. Use the amount provided in the cycle goal, do NOT default to a smaller fixed number.
    - Focus on one high-conviction deployment per cycle.
+   - ALWAYS pass strategy_id so exit rules are stored with the position.
 `;
   } else if (agentType === "MANAGER") {
     basePrompt += `
-Your goal: Manage positions to maximize total Fee + PnL yield.
+Your goal: Manage positions to maximize total Fee + PnL yield using strategy-aware exit rules.
 
 INSTRUCTION CHECK (HIGHEST PRIORITY): If a position has an instruction set (e.g. "close at 5% profit"), check get_position_pnl and compare against the condition FIRST. If the condition IS MET → close immediately. No further analysis, no hesitation. BIAS TO HOLD does NOT apply when an instruction condition is met.
 
-BIAS TO HOLD: Unless an instruction fires, a pool is dying, volume has collapsed, or yield has vanished, hold.
+STRATEGY-AWARE EXIT RULES (check SECOND, before global hard rules):
+Each position may have a strategy_profile with custom exit thresholds from the expert playbook.
+If strategy exit rules are present, apply them BEFORE the global hard rules:
+- strategy take_profit_pct → CLOSE if pnl_pct >= it
+- strategy stop_loss_pct → CLOSE if pnl_pct <= it
+- strategy max_hold_minutes → CLOSE if age_minutes >= it (scalp strategies have tight hold limits!)
+- strategy oor_wait_minutes → CLOSE if oor_minutes >= it
+- strategy min_fee_per_tvl_24h → CLOSE if fee_per_tvl < it AND age >= 60min
+Strategy rules are typically TIGHTER than global rules — respect them. A void_hyperfocused position MUST close within 3 minutes. A yunss_classic can hold overnight.
 
-Decision Factors for Closing (no instruction):
+BIAS TO HOLD: Unless an instruction fires, a strategy exit triggers, a pool is dying, volume has collapsed, or yield has vanished, hold.
+
+Decision Factors for Closing (no instruction, no strategy exit):
 - Yield Health: Call get_position_pnl. Is the current Fee/TVL still one of the best available?
 - Price Context: Is the token price stabilizing or trending? If it's out of range, will it come back?
 - Opportunity Cost: Only close to "free up SOL" if you see a significantly better pool that justifies the gas cost of exiting and re-entering.
