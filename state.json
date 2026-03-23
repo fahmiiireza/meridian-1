@@ -1,0 +1,1890 @@
+{
+  "positions": {
+    "H7hwXbjXBY57hL3gFCwojp6pw1SdpohKUKeG8DAAzqpo": {
+      "position": "H7hwXbjXBY57hL3gFCwojp6pw1SdpohKUKeG8DAAzqpo",
+      "pool": "7ZWsb2JwhqLtpBz8EvBZLsq8M8XaP9XdoYBBCSk9WGUJ",
+      "pool_name": "PISS-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -597,
+        "max": -547,
+        "bins_below": 50,
+        "bins_above": 0
+      },
+      "amount_sol": 1,
+      "amount_x": 0,
+      "active_bin_at_deploy": -547,
+      "bin_step": 100,
+      "volatility": 1.41,
+      "fee_tvl_ratio": 0.0633,
+      "initial_fee_tvl_24h": 0.0633,
+      "organic_score": 75,
+      "initial_value_usd": 87.29,
+      "deployed_at": "2026-03-22T09:08:50.998Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T10:18:51.613Z",
+      "notes": [
+        "Closed at 2026-03-22T10:18:51.613Z: agent decision"
+      ]
+    },
+    "2QL2gn6ZQq4XdqM22STvTbRNziC3Df6UnV8x2PNrx3Vi": {
+      "position": "2QL2gn6ZQq4XdqM22STvTbRNziC3Df6UnV8x2PNrx3Vi",
+      "pool": "7WWteLHaj8d2NoDpcZsowxQ7reRQd87wHCWc26frwcSV",
+      "pool_name": "TERAFAB-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -448,
+        "max": -408,
+        "bins_below": 40,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -408,
+      "bin_step": 100,
+      "volatility": 5.48,
+      "fee_tvl_ratio": 0.111,
+      "initial_fee_tvl_24h": 0.111,
+      "organic_score": 87,
+      "deployed_at": "2026-03-22T09:34:13.705Z",
+      "out_of_range_since": "2026-03-22T10:00:07.531Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T10:27:14.219Z",
+      "notes": [
+        "Closed at 2026-03-22T10:27:14.219Z: agent decision"
+      ]
+    },
+    "6JYqf8Q32pxFAhwfnsdA4dtxCNQTcFhXDinB4ftsna98": {
+      "position": "6JYqf8Q32pxFAhwfnsdA4dtxCNQTcFhXDinB4ftsna98",
+      "pool": "29awn61NrNdAaPEAnDbkGtSwERnbGX1v2fQbM1yjc4UU",
+      "pool_name": "Aspen-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -554,
+        "max": -505,
+        "bins_below": 49,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -505,
+      "bin_step": 100,
+      "deployed_at": "2026-03-22T10:03:02.101Z",
+      "out_of_range_since": "2026-03-22T10:15:01.811Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T10:30:15.486Z",
+      "notes": [
+        "Closed at 2026-03-22T10:30:15.486Z: agent decision"
+      ]
+    },
+    "8McLcpEQqqLwnEZiQhEnwbmAdSs36xvAquTs3sYJyntc": {
+      "position": "8McLcpEQqqLwnEZiQhEnwbmAdSs36xvAquTs3sYJyntc",
+      "pool": "BfQTnDrW3XmRpyKgoCRkSPvMKFRAKdMZSc4PESMxiqiL",
+      "pool_name": "Downald-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -610,
+        "max": -575,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.87,
+      "amount_x": 0,
+      "active_bin_at_deploy": -575,
+      "bin_step": 100,
+      "volatility": 2.81,
+      "fee_tvl_ratio": 0.0887,
+      "initial_fee_tvl_24h": 0.0887,
+      "organic_score": 76,
+      "deployed_at": "2026-03-22T11:54:19.850Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T13:08:51.833Z",
+      "notes": [
+        "Closed at 2026-03-22T13:08:51.833Z: agent decision"
+      ]
+    },
+    "71oWWyDEn8BXHmonQUnW3BeasR88VEzaobZvvPWYAwiK": {
+      "position": "71oWWyDEn8BXHmonQUnW3BeasR88VEzaobZvvPWYAwiK",
+      "pool": "7ZWsb2JwhqLtpBz8EvBZLsq8M8XaP9XdoYBBCSk9WGUJ",
+      "pool_name": "PISS-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -589,
+        "max": -520,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 0.45,
+      "amount_x": 0,
+      "active_bin_at_deploy": -520,
+      "bin_step": 100,
+      "volatility": 5,
+      "fee_tvl_ratio": 0.1006,
+      "initial_fee_tvl_24h": 0.1006,
+      "organic_score": 85,
+      "deployed_at": "2026-03-22T12:00:12.728Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T13:08:52.947Z",
+      "notes": [
+        "Closed at 2026-03-22T13:08:52.947Z: agent decision"
+      ]
+    },
+    "7RGd1vjtugky5Kr8nbdvJAYx2Sa4bqimVoLjxcR4av3G": {
+      "position": "7RGd1vjtugky5Kr8nbdvJAYx2Sa4bqimVoLjxcR4av3G",
+      "pool": "HRgdZVnVSwYWS1ZVeA3TLQy1bycfpxCi1AUHbEUN1yAv",
+      "pool_name": "Rosie-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -546,
+        "max": -511,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.45,
+      "amount_x": 0,
+      "active_bin_at_deploy": -511,
+      "bin_step": 100,
+      "fee_tvl_ratio": 0.0894,
+      "initial_fee_tvl_24h": 0.0894,
+      "organic_score": 66,
+      "initial_value_usd": 39.2265,
+      "deployed_at": "2026-03-22T12:00:13.232Z",
+      "out_of_range_since": "2026-03-22T12:12:01.140Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T12:33:23.529Z",
+      "notes": [
+        "Closed at 2026-03-22T12:33:23.529Z: agent decision"
+      ]
+    },
+    "7UM8tHJk8fXPiSqvS5v9QTeYZYPrLYnHDQNCZBrnBFFH": {
+      "position": "7UM8tHJk8fXPiSqvS5v9QTeYZYPrLYnHDQNCZBrnBFFH",
+      "pool": "29awn61NrNdAaPEAnDbkGtSwERnbGX1v2fQbM1yjc4UU",
+      "pool_name": "Aspen-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -575,
+        "max": -540,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -540,
+      "deployed_at": "2026-03-22T12:54:12.309Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T13:08:51.824Z",
+      "notes": [
+        "Closed at 2026-03-22T13:08:51.824Z: agent decision"
+      ]
+    },
+    "DiEo3bb6cyG9RyUQYcF4TDePkpp6hh6G7gQrJW4FGLBq": {
+      "position": "DiEo3bb6cyG9RyUQYcF4TDePkpp6hh6G7gQrJW4FGLBq",
+      "pool": "DDJejTKts794KMfdutwcvAuMDgK37vXsvysSuKyb4eZx",
+      "pool_name": "SOMETHING-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -569,
+        "max": -534,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.86,
+      "amount_x": 0,
+      "active_bin_at_deploy": -534,
+      "bin_step": 100,
+      "volatility": 0.7,
+      "fee_tvl_ratio": 0.2179,
+      "initial_fee_tvl_24h": 0.2179,
+      "organic_score": 85,
+      "deployed_at": "2026-03-22T13:09:18.768Z",
+      "out_of_range_since": "2026-03-22T13:16:52.485Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T13:40:10.939Z",
+      "notes": [
+        "Closed at 2026-03-22T13:40:10.939Z: agent decision"
+      ]
+    },
+    "GDx4W2YeMcpFxSLCtLTPh8jqZSvLNSt9NcFbZXRzjRLL": {
+      "position": "GDx4W2YeMcpFxSLCtLTPh8jqZSvLNSt9NcFbZXRzjRLL",
+      "pool": "62MZLNx9d6Gajmd3bJqczMG5xSa47Y7KpieZ91TxMjsq",
+      "pool_name": "NOTHING-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -567,
+        "max": -532,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.45,
+      "amount_x": 0,
+      "active_bin_at_deploy": -532,
+      "bin_step": 100,
+      "fee_tvl_ratio": 0.0681,
+      "initial_fee_tvl_24h": 0.0681,
+      "organic_score": 75,
+      "deployed_at": "2026-03-22T13:10:12.215Z",
+      "out_of_range_since": "2026-03-22T13:39:57.355Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T13:40:14.958Z",
+      "notes": [
+        "Closed at 2026-03-22T13:40:14.958Z: agent decision"
+      ]
+    },
+    "GuPhfCtCENEY2NHP4Md4VX3sdW5yM7SHbgBL8qfDJcY5": {
+      "position": "GuPhfCtCENEY2NHP4Md4VX3sdW5yM7SHbgBL8qfDJcY5",
+      "pool": "8ES2F7UqSvHncvvbbosyoqqmp3DPFhBakw6WtjkqxXAM",
+      "pool_name": "Distorted-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -624,
+        "max": -589,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -589,
+      "bin_step": 80,
+      "fee_tvl_ratio": 0.1107,
+      "initial_fee_tvl_24h": 0.1107,
+      "organic_score": 69,
+      "initial_value_usd": 34.97,
+      "deployed_at": "2026-03-22T13:30:13.199Z",
+      "out_of_range_since": "2026-03-22T13:31:18.211Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T13:48:19.877Z",
+      "notes": [
+        "Closed at 2026-03-22T13:48:19.877Z: agent decision"
+      ]
+    },
+    "6xMGEUn5MRGTmsgAXB5uo1dTMEgJWW8LF6ua6ARmFDXh": {
+      "position": "6xMGEUn5MRGTmsgAXB5uo1dTMEgJWW8LF6ua6ARmFDXh",
+      "pool": "29awn61NrNdAaPEAnDbkGtSwERnbGX1v2fQbM1yjc4UU",
+      "pool_name": "Aspen-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -586,
+        "max": -551,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -551,
+      "bin_step": 100,
+      "volatility": 2.87,
+      "fee_tvl_ratio": 0.1105,
+      "initial_fee_tvl_24h": 0.1105,
+      "organic_score": 75,
+      "initial_value_usd": 34.84,
+      "deployed_at": "2026-03-22T13:48:45.702Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T14:24:19.715Z",
+      "notes": [
+        "Closed at 2026-03-22T14:24:19.715Z: agent decision"
+      ]
+    },
+    "DnDbY41o3JoDi6c7yPpFzHRkqQTc1SjVPLXLp7dsJDWs": {
+      "position": "DnDbY41o3JoDi6c7yPpFzHRkqQTc1SjVPLXLp7dsJDWs",
+      "pool": "DDJejTKts794KMfdutwcvAuMDgK37vXsvysSuKyb4eZx",
+      "pool_name": "SOMETHING-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -548,
+        "max": -513,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.66,
+      "amount_x": 0,
+      "active_bin_at_deploy": -513,
+      "bin_step": 100,
+      "fee_tvl_ratio": 0.394,
+      "initial_fee_tvl_24h": 0.394,
+      "organic_score": 85,
+      "initial_value_usd": 57.54,
+      "deployed_at": "2026-03-22T13:55:14.965Z",
+      "out_of_range_since": "2026-03-22T14:55:03.363Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T15:00:17.945Z",
+      "notes": [
+        "Closed at 2026-03-22T15:00:17.945Z: agent decision"
+      ]
+    },
+    "FZRYKEx1hy9Nh1wfVR6z6R4RwLCn2r9EhGsyZgDCHJyr": {
+      "position": "FZRYKEx1hy9Nh1wfVR6z6R4RwLCn2r9EhGsyZgDCHJyr",
+      "pool": "Cy4ZW25mnXpwD1XUUio8V6bPjpVBDCXJ58fkcZaAKuoS",
+      "pool_name": "Aliens-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -414,
+        "max": -345,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -345,
+      "bin_step": 125,
+      "volatility": 5,
+      "fee_tvl_ratio": 0.1278,
+      "initial_fee_tvl_24h": 0.1278,
+      "organic_score": 73,
+      "initial_value_usd": 34.92,
+      "deployed_at": "2026-03-22T14:05:18.153Z",
+      "out_of_range_since": "2026-03-22T14:15:02.937Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T14:30:14.622Z",
+      "notes": [
+        "Closed at 2026-03-22T14:30:14.622Z: agent decision"
+      ]
+    },
+    "6ynwwVkBLVN9CFbj7zYETBTu8Xyigp8eWYGi2DD2PFfj": {
+      "position": "6ynwwVkBLVN9CFbj7zYETBTu8Xyigp8eWYGi2DD2PFfj",
+      "pool": "FXZr7WgaTuYLQ5ZSrGzc3BTbu3X3HYnNVY5zXZ5jnoa5",
+      "pool_name": "AIFRUITS-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -619,
+        "max": -563,
+        "bins_below": 56,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -563,
+      "bin_step": 100,
+      "volatility": 3.04,
+      "fee_tvl_ratio": 0.3182,
+      "initial_fee_tvl_24h": 0.3182,
+      "organic_score": 71,
+      "initial_value_usd": 34.94,
+      "deployed_at": "2026-03-22T14:30:12.876Z",
+      "out_of_range_since": "2026-03-22T14:33:01.141Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T15:00:17.950Z",
+      "notes": [
+        "Closed at 2026-03-22T15:00:17.950Z: agent decision"
+      ]
+    },
+    "CP9hZngk3L9rUcPgugj7HMYRdhWv9u1NHQhv9szU4QYJ": {
+      "position": "CP9hZngk3L9rUcPgugj7HMYRdhWv9u1NHQhv9szU4QYJ",
+      "pool": "Cy4ZW25mnXpwD1XUUio8V6bPjpVBDCXJ58fkcZaAKuoS",
+      "pool_name": "Aliens-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -376,
+        "max": -341,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -341,
+      "bin_step": 125,
+      "volatility": 0,
+      "fee_tvl_ratio": 0.1087,
+      "initial_fee_tvl_24h": 0.1087,
+      "organic_score": 73,
+      "initial_value_usd": 34.96,
+      "deployed_at": "2026-03-22T14:35:09.623Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T18:30:16.739Z",
+      "notes": [
+        "Closed at 2026-03-22T18:30:16.739Z: agent decision"
+      ]
+    },
+    "9RqNdf5WSzzCSPuEFvDn3hjiGMU7oDanY3mFFNJg3Tvt": {
+      "position": "9RqNdf5WSzzCSPuEFvDn3hjiGMU7oDanY3mFFNJg3Tvt",
+      "pool": "44W1QcPgR5TsvGDPFBXyqtvXmX63LNc8HnJZVSLUn4Tu",
+      "pool_name": "Optimistic-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -536,
+        "max": -486,
+        "bins_below": 50,
+        "bins_above": 0
+      },
+      "amount_sol": 0.67,
+      "amount_x": 0,
+      "active_bin_at_deploy": -486,
+      "bin_step": 100,
+      "volatility": 0,
+      "fee_tvl_ratio": 0.0636,
+      "initial_fee_tvl_24h": 0.0636,
+      "organic_score": 80,
+      "deployed_at": "2026-03-22T15:05:21.819Z",
+      "out_of_range_since": "2026-03-22T18:10:03.914Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T18:30:16.742Z",
+      "notes": [
+        "Closed at 2026-03-22T18:30:16.742Z: agent decision"
+      ]
+    },
+    "9GGWmYVPqtmWRA88NkdPwfusni56wMhD8mwuhWw6Xxzs": {
+      "position": "9GGWmYVPqtmWRA88NkdPwfusni56wMhD8mwuhWw6Xxzs",
+      "pool": "DDJejTKts794KMfdutwcvAuMDgK37vXsvysSuKyb4eZx",
+      "pool_name": "SOMETHING-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -553,
+        "max": -508,
+        "bins_below": 45,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -508,
+      "bin_step": 100,
+      "volatility": 1.41,
+      "fee_tvl_ratio": 0.1292,
+      "initial_fee_tvl_24h": 0.1292,
+      "organic_score": 85,
+      "initial_value_usd": 34.848,
+      "deployed_at": "2026-03-22T15:10:17.075Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T17:40:17.301Z",
+      "notes": [
+        "Closed at 2026-03-22T17:40:17.301Z: agent decision"
+      ]
+    },
+    "3yVwPofh23kyWprMxAxyMGNKsYKa3Nh6eNnUhm3ACCcc": {
+      "position": "3yVwPofh23kyWprMxAxyMGNKsYKa3Nh6eNnUhm3ACCcc",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -662,
+        "max": -612,
+        "bins_below": 50,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -612,
+      "bin_step": 80,
+      "volatility": 2.25,
+      "fee_tvl_ratio": 0.1374,
+      "initial_fee_tvl_24h": 0.1374,
+      "organic_score": 75,
+      "initial_value_usd": 34.896,
+      "deployed_at": "2026-03-22T17:50:15.949Z",
+      "out_of_range_since": "2026-03-22T18:30:07.722Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T18:35:19.076Z",
+      "notes": [
+        "Closed at 2026-03-22T18:35:19.076Z: agent decision"
+      ]
+    },
+    "G3nnyLUzW4GkyiHA7THC2KFXTTJi4u9646PqjLiLVibA": {
+      "position": "G3nnyLUzW4GkyiHA7THC2KFXTTJi4u9646PqjLiLVibA",
+      "pool": "4zTtogg1FYkwo2gvVmod8frqAJCvHVUrwHB4Mgi6mHSd",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -515,
+        "max": -480,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.9,
+      "amount_x": 0,
+      "active_bin_at_deploy": -480,
+      "bin_step": 100,
+      "volatility": 2,
+      "fee_tvl_ratio": 0.2744,
+      "initial_fee_tvl_24h": 0.2744,
+      "organic_score": 75,
+      "initial_value_usd": 78.093,
+      "deployed_at": "2026-03-22T18:45:16.929Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T19:15:10.943Z",
+      "notes": [
+        "Closed at 2026-03-22T19:15:10.943Z: agent decision"
+      ]
+    },
+    "DcTJKPRftWFf6ayxFo2qiBuHjPgnWqKB4Rmz8jfWiQwN": {
+      "position": "DcTJKPRftWFf6ayxFo2qiBuHjPgnWqKB4Rmz8jfWiQwN",
+      "pool": "5wUyjVyaypBXoKFRVtb2wN8hqLSZvWnNmU63Q6HEr8Zh",
+      "pool_name": "cowgorithm-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -570,
+        "max": -535,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.47,
+      "amount_x": 0,
+      "active_bin_at_deploy": -535,
+      "bin_step": 100,
+      "fee_tvl_ratio": 0.0541,
+      "initial_fee_tvl_24h": 0.0541,
+      "organic_score": 82,
+      "initial_value_usd": 40.84,
+      "deployed_at": "2026-03-22T19:00:07.590Z",
+      "out_of_range_since": "2026-03-22T19:20:00.653Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T19:35:18.703Z",
+      "notes": [
+        "Closed at 2026-03-22T19:35:18.703Z: agent decision"
+      ]
+    },
+    "54naRU5cSRvmR7tPn31dPGuR1hE3NhJGbJdKTySVZGes": {
+      "position": "54naRU5cSRvmR7tPn31dPGuR1hE3NhJGbJdKTySVZGes",
+      "pool": "DDJejTKts794KMfdutwcvAuMDgK37vXsvysSuKyb4eZx",
+      "pool_name": "SOMETHING-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -611,
+        "max": -576,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.47,
+      "amount_x": 0,
+      "active_bin_at_deploy": -576,
+      "bin_step": 100,
+      "fee_tvl_ratio": 0.0749,
+      "initial_fee_tvl_24h": 0.0749,
+      "organic_score": 75,
+      "initial_value_usd": 40.89,
+      "deployed_at": "2026-03-22T19:00:14.497Z",
+      "out_of_range_since": "2026-03-22T19:09:41.019Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T19:30:09.537Z",
+      "notes": [
+        "Closed at 2026-03-22T19:30:09.537Z: agent decision"
+      ]
+    },
+    "CoKN4UcKYVwPM9hBwyyW1aCn6r5KppHqZDQQCANR7biN": {
+      "position": "CoKN4UcKYVwPM9hBwyyW1aCn6r5KppHqZDQQCANR7biN",
+      "pool": "44W1QcPgR5TsvGDPFBXyqtvXmX63LNc8HnJZVSLUn4Tu",
+      "pool_name": "Optimistic-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -536,
+        "max": -474,
+        "bins_below": 62,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -474,
+      "bin_step": 100,
+      "volatility": 2.5,
+      "fee_tvl_ratio": 0.0523,
+      "initial_fee_tvl_24h": 0.0523,
+      "organic_score": 80,
+      "initial_value_usd": 34.664,
+      "deployed_at": "2026-03-22T19:25:12.159Z",
+      "out_of_range_since": "2026-03-22T21:20:01.798Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T21:50:08.906Z",
+      "notes": [
+        "Closed at 2026-03-22T21:50:08.906Z: agent decision"
+      ]
+    },
+    "9qFf6GhR75QwSTq3S4CheXXFtaug28dCW6VSspZbj34y": {
+      "position": "9qFf6GhR75QwSTq3S4CheXXFtaug28dCW6VSspZbj34y",
+      "pool": "7ZWsb2JwhqLtpBz8EvBZLsq8M8XaP9XdoYBBCSk9WGUJ",
+      "pool_name": "PISS-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -660,
+        "max": -615,
+        "bins_below": 45,
+        "bins_above": 0
+      },
+      "amount_sol": 0.66,
+      "amount_x": 0,
+      "active_bin_at_deploy": -615,
+      "bin_step": 100,
+      "volatility": 1.41,
+      "fee_tvl_ratio": 0.208,
+      "initial_fee_tvl_24h": 0.208,
+      "organic_score": 75,
+      "initial_value_usd": 57.22,
+      "deployed_at": "2026-03-22T19:40:11.517Z",
+      "out_of_range_since": "2026-03-22T19:45:02.129Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T20:10:12.637Z",
+      "notes": [
+        "Closed at 2026-03-22T20:10:12.637Z: agent decision"
+      ]
+    },
+    "7eVCJL28Vf33SfVa9oRpGze8PxFwjQc1EEADntLRTaSg": {
+      "position": "7eVCJL28Vf33SfVa9oRpGze8PxFwjQc1EEADntLRTaSg",
+      "pool": "7ZWsb2JwhqLtpBz8EvBZLsq8M8XaP9XdoYBBCSk9WGUJ",
+      "pool_name": "PISS-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -660,
+        "max": -615,
+        "bins_below": 45,
+        "bins_above": 0
+      },
+      "amount_sol": 0.66,
+      "amount_x": 0,
+      "active_bin_at_deploy": -615,
+      "bin_step": 100,
+      "volatility": 1.41,
+      "fee_tvl_ratio": 0.208,
+      "initial_fee_tvl_24h": 0.208,
+      "organic_score": 75,
+      "initial_value_usd": 57.22,
+      "deployed_at": "2026-03-22T19:40:13.072Z",
+      "out_of_range_since": "2026-03-22T19:45:02.128Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T20:10:12.644Z",
+      "notes": [
+        "Closed at 2026-03-22T20:10:12.644Z: agent decision"
+      ]
+    },
+    "3VbdSgGhKBSv6hAeFmzBo3UA4jJce9yPCKfgR6nRx6HP": {
+      "position": "3VbdSgGhKBSv6hAeFmzBo3UA4jJce9yPCKfgR6nRx6HP",
+      "pool": "5wUyjVyaypBXoKFRVtb2wN8hqLSZvWnNmU63Q6HEr8Zh",
+      "pool_name": "cowgorithm-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -593,
+        "max": -524,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 0.66,
+      "amount_x": 0,
+      "active_bin_at_deploy": -524,
+      "bin_step": 100,
+      "volatility": 5,
+      "fee_tvl_ratio": 0.0962,
+      "initial_fee_tvl_24h": 0.0962,
+      "organic_score": 83,
+      "initial_value_usd": 57.327,
+      "deployed_at": "2026-03-22T20:15:10.630Z",
+      "out_of_range_since": "2026-03-22T20:20:00.309Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T20:25:14.124Z",
+      "notes": [
+        "Closed at 2026-03-22T20:25:14.124Z: agent decision"
+      ]
+    },
+    "4JarfXQ3WACvsLLqU8kFGNw63UQWBmnEAmmK4jq4rknq": {
+      "position": "4JarfXQ3WACvsLLqU8kFGNw63UQWBmnEAmmK4jq4rknq",
+      "pool": "7WWteLHaj8d2NoDpcZsowxQ7reRQd87wHCWc26frwcSV",
+      "pool_name": "TERAFAB-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -527,
+        "max": -492,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -492,
+      "bin_step": 100,
+      "volatility": 0,
+      "fee_tvl_ratio": 0.0873,
+      "initial_fee_tvl_24h": 0.0873,
+      "organic_score": 75,
+      "initial_value_usd": 34.78,
+      "deployed_at": "2026-03-22T20:20:12.464Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T21:50:08.913Z",
+      "notes": [
+        "Closed at 2026-03-22T21:50:08.913Z: agent decision"
+      ]
+    },
+    "CJxyEdDLny4Jt62e9EtemPC4QUYigiKqz5BHMuAUBwL3": {
+      "position": "CJxyEdDLny4Jt62e9EtemPC4QUYigiKqz5BHMuAUBwL3",
+      "pool": "4zTtogg1FYkwo2gvVmod8frqAJCvHVUrwHB4Mgi6mHSd",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -590,
+        "max": -521,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 0.45,
+      "amount_x": 0,
+      "active_bin_at_deploy": -521,
+      "bin_step": 100,
+      "volatility": 5,
+      "fee_tvl_ratio": 0.5048,
+      "initial_fee_tvl_24h": 0.5048,
+      "organic_score": 75,
+      "initial_value_usd": 38.9,
+      "deployed_at": "2026-03-22T20:30:09.746Z",
+      "out_of_range_since": "2026-03-22T20:40:00.928Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T21:05:11.467Z",
+      "notes": [
+        "Closed at 2026-03-22T21:05:11.467Z: agent decision"
+      ]
+    },
+    "Ge5kiFt7HcgguxuDnBEVUV4qVBBSMrVRHJrvQDEMNsD3": {
+      "position": "Ge5kiFt7HcgguxuDnBEVUV4qVBBSMrVRHJrvQDEMNsD3",
+      "pool": "5wUyjVyaypBXoKFRVtb2wN8hqLSZvWnNmU63Q6HEr8Zh",
+      "pool_name": "cowgorithm-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -595,
+        "max": -546,
+        "bins_below": 49,
+        "bins_above": 0
+      },
+      "amount_sol": 0.49,
+      "amount_x": 0,
+      "active_bin_at_deploy": -546,
+      "bin_step": 100,
+      "volatility": 2.11,
+      "fee_tvl_ratio": 0.2253,
+      "initial_fee_tvl_24h": 0.2253,
+      "organic_score": 83,
+      "initial_value_usd": 42.44,
+      "deployed_at": "2026-03-22T21:10:09.614Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T00:10:09.869Z",
+      "notes": [
+        "Closed at 2026-03-23T00:10:09.869Z: agent decision"
+      ]
+    },
+    "FnJNoiVCEomZdirgvZgGFR4Ljwj725nunm72zE2QUQDs": {
+      "position": "FnJNoiVCEomZdirgvZgGFR4Ljwj725nunm72zE2QUQDs",
+      "pool": "DUXCeGjGk7pGcjZY13MAZo9KBKYuuCrSficyKfpuYvyR",
+      "pool_name": "LOL-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -313,
+        "max": -278,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.67,
+      "amount_x": 0,
+      "active_bin_at_deploy": -278,
+      "bin_step": 125,
+      "fee_tvl_ratio": 0.0741,
+      "initial_fee_tvl_24h": 0.0741,
+      "organic_score": 83,
+      "deployed_at": "2026-03-22T22:00:11.748Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T22:50:24.397Z",
+      "notes": [
+        "Closed at 2026-03-22T22:50:24.397Z: agent decision"
+      ]
+    },
+    "5ipnHm6BiUi5ucbyCL2TTDveUbCtfkQzf9F7mCx1P2y7": {
+      "position": "5ipnHm6BiUi5ucbyCL2TTDveUbCtfkQzf9F7mCx1P2y7",
+      "pool": "44W1QcPgR5TsvGDPFBXyqtvXmX63LNc8HnJZVSLUn4Tu",
+      "pool_name": "Optimistic-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -519,
+        "max": -455,
+        "bins_below": 64,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -455,
+      "bin_step": 100,
+      "volatility": 4.22,
+      "fee_tvl_ratio": 0.2128,
+      "initial_fee_tvl_24h": 0.2128,
+      "organic_score": 80,
+      "initial_value_usd": 34.352,
+      "deployed_at": "2026-03-22T22:05:09.750Z",
+      "out_of_range_since": "2026-03-22T22:25:01.998Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T22:55:10.280Z",
+      "notes": [
+        "Closed at 2026-03-22T22:55:10.280Z: agent decision"
+      ]
+    },
+    "9cUvu5Ny8T1ghMbf7yvnxnDrDW5tWSS9iEYmpkY8cy3P": {
+      "position": "9cUvu5Ny8T1ghMbf7yvnxnDrDW5tWSS9iEYmpkY8cy3P",
+      "pool": "7WWteLHaj8d2NoDpcZsowxQ7reRQd87wHCWc26frwcSV",
+      "pool_name": "TERAFAB-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -542,
+        "max": -507,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.47,
+      "amount_x": 0,
+      "active_bin_at_deploy": -507,
+      "bin_step": 100,
+      "volatility": 0,
+      "fee_tvl_ratio": 0.145,
+      "initial_fee_tvl_24h": 0.145,
+      "organic_score": 75,
+      "initial_value_usd": 40.67,
+      "deployed_at": "2026-03-22T22:55:16.170Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-22T23:50:09.603Z",
+      "notes": [
+        "Closed at 2026-03-22T23:50:09.603Z: agent decision"
+      ]
+    },
+    "4zYNMPgiqEzREHR94eE2ujJxdaK1kzGdsF9jUGomWgtQ": {
+      "position": "4zYNMPgiqEzREHR94eE2ujJxdaK1kzGdsF9jUGomWgtQ",
+      "pool": "BfQTnDrW3XmRpyKgoCRkSPvMKFRAKdMZSc4PESMxiqiL",
+      "pool_name": "Downald-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -586,
+        "max": -551,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.43,
+      "amount_x": 0,
+      "active_bin_at_deploy": -551,
+      "bin_step": 100,
+      "volatility": 0,
+      "fee_tvl_ratio": 0.2647,
+      "initial_fee_tvl_24h": 0.2647,
+      "organic_score": 77,
+      "initial_value_usd": 37.24,
+      "deployed_at": "2026-03-22T23:20:17.420Z",
+      "out_of_range_since": "2026-03-23T00:05:01.141Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T00:20:14.449Z",
+      "notes": [
+        "Closed at 2026-03-23T00:20:14.449Z: agent decision"
+      ]
+    },
+    "7CQtRYKueW7xFhL2metUtC6YCAvGTGHmAS6zxS2Pb1n1": {
+      "position": "7CQtRYKueW7xFhL2metUtC6YCAvGTGHmAS6zxS2Pb1n1",
+      "pool": "DUXCeGjGk7pGcjZY13MAZo9KBKYuuCrSficyKfpuYvyR",
+      "pool_name": "LOL-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -355,
+        "max": -286,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 0.46,
+      "amount_x": 0,
+      "active_bin_at_deploy": -286,
+      "bin_step": 125,
+      "volatility": 5,
+      "fee_tvl_ratio": 0.0951,
+      "initial_fee_tvl_24h": 0.0951,
+      "organic_score": 83,
+      "initial_value_usd": 39.72,
+      "deployed_at": "2026-03-23T00:00:11.011Z",
+      "out_of_range_since": "2026-03-23T00:15:00.790Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T00:35:13.155Z",
+      "notes": [
+        "Closed at 2026-03-23T00:35:13.155Z: agent decision"
+      ]
+    },
+    "EGbqp7zppZvEqtkeT3rkaHaVUkiGYkPqcPi9CnL1mU2v": {
+      "position": "EGbqp7zppZvEqtkeT3rkaHaVUkiGYkPqcPi9CnL1mU2v",
+      "pool": "5wUyjVyaypBXoKFRVtb2wN8hqLSZvWnNmU63Q6HEr8Zh",
+      "pool_name": "cowgorithm-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -600,
+        "max": -551,
+        "bins_below": 49,
+        "bins_above": 0
+      },
+      "amount_sol": 0.51,
+      "amount_x": 0,
+      "active_bin_at_deploy": -551,
+      "volatility": 1.72,
+      "fee_tvl_ratio": 0.1,
+      "initial_fee_tvl_24h": 0.1,
+      "organic_score": 83,
+      "deployed_at": "2026-03-23T00:20:13.999Z",
+      "out_of_range_since": "2026-03-23T01:55:00.462Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T02:15:07.583Z",
+      "notes": [
+        "Closed at 2026-03-23T02:15:07.583Z: agent decision"
+      ]
+    },
+    "FngnGXxhMD4aBAm1FPwYuZxetgpmYPWVfzTxLJkz9yWw": {
+      "position": "FngnGXxhMD4aBAm1FPwYuZxetgpmYPWVfzTxLJkz9yWw",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -719,
+        "max": -650,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 0.48,
+      "amount_x": 0,
+      "active_bin_at_deploy": -650,
+      "bin_step": 80,
+      "volatility": 3.94,
+      "fee_tvl_ratio": 0.1005,
+      "initial_fee_tvl_24h": 0.1005,
+      "organic_score": 75,
+      "initial_value_usd": 41.38,
+      "deployed_at": "2026-03-23T00:25:12.280Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T01:55:16.443Z",
+      "notes": [
+        "Closed at 2026-03-23T01:55:16.443Z: agent decision"
+      ]
+    },
+    "8f9NSfVxxApszptsaa2r8kjbDBJqcoSwtcXHF6PtKDRS": {
+      "position": "8f9NSfVxxApszptsaa2r8kjbDBJqcoSwtcXHF6PtKDRS",
+      "pool": "7WWteLHaj8d2NoDpcZsowxQ7reRQd87wHCWc26frwcSV",
+      "pool_name": "TERAFAB-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -574,
+        "max": -539,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.47,
+      "amount_x": 0,
+      "active_bin_at_deploy": -539,
+      "bin_step": 100,
+      "volatility": 1.41,
+      "fee_tvl_ratio": 0.0767,
+      "initial_fee_tvl_24h": 0.0767,
+      "organic_score": 75,
+      "initial_value_usd": 40.5751,
+      "deployed_at": "2026-03-23T00:40:14.016Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T01:55:14.517Z",
+      "notes": [
+        "Closed at 2026-03-23T01:55:14.517Z: agent decision"
+      ]
+    },
+    "CCMy9mCZLfZr3QMpzP7ksTdUmT53rPNzDzoz6Ny6XYZS": {
+      "position": "CCMy9mCZLfZr3QMpzP7ksTdUmT53rPNzDzoz6Ny6XYZS",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -724,
+        "max": -678,
+        "bins_below": 46,
+        "bins_above": 0
+      },
+      "amount_sol": 0.73,
+      "amount_x": 0,
+      "active_bin_at_deploy": -678,
+      "bin_step": 80,
+      "volatility": 1.69,
+      "fee_tvl_ratio": 0.2332,
+      "initial_fee_tvl_24h": 0.2332,
+      "organic_score": 75,
+      "initial_value_usd": 62.96,
+      "deployed_at": "2026-03-23T02:15:12.521Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T02:40:10.614Z",
+      "notes": [
+        "Closed at 2026-03-23T02:40:10.614Z: agent decision"
+      ]
+    },
+    "GJAWQkiBTtLNmZyHJQhhqLopB9Ep7jRZeT1qDwyWxqib": {
+      "position": "GJAWQkiBTtLNmZyHJQhhqLopB9Ep7jRZeT1qDwyWxqib",
+      "pool": "J6s8UU3q1TCmuUDqhVxmJLBdEyLr5zA1hiWFuPqrHYtc",
+      "pool_name": "PIXEL-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -540,
+        "max": -487,
+        "bins_below": 53,
+        "bins_above": 0
+      },
+      "amount_sol": 0.54,
+      "amount_x": 0,
+      "active_bin_at_deploy": -487,
+      "bin_step": 125,
+      "volatility": 2.59,
+      "fee_tvl_ratio": 0.405,
+      "initial_fee_tvl_24h": 0.405,
+      "organic_score": 74,
+      "initial_value_usd": 46.47,
+      "deployed_at": "2026-03-23T02:30:11.444Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T03:45:09.896Z",
+      "notes": [
+        "Closed at 2026-03-23T03:45:09.896Z: agent decision"
+      ]
+    },
+    "ACCC4wRTwePzSQUQm3AxmEhxVYPnrkhgMG4m8WMcUWih": {
+      "position": "ACCC4wRTwePzSQUQm3AxmEhxVYPnrkhgMG4m8WMcUWih",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -755,
+        "max": -700,
+        "bins_below": 55,
+        "bins_above": 0
+      },
+      "amount_sol": 0.65,
+      "amount_x": 0,
+      "active_bin_at_deploy": -700,
+      "bin_step": 80,
+      "volatility": 3,
+      "fee_tvl_ratio": 0.2687,
+      "initial_fee_tvl_24h": 0.2687,
+      "organic_score": 75,
+      "deployed_at": "2026-03-23T02:50:08.662Z",
+      "out_of_range_since": "2026-03-23T04:20:01.029Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T04:45:18.463Z",
+      "notes": [
+        "Closed at 2026-03-23T04:45:18.463Z: agent decision"
+      ]
+    },
+    "5qPSaayaDmHsf3AbWfTXATHbmLTM3qCS4gXx7Msp7nkH": {
+      "position": "5qPSaayaDmHsf3AbWfTXATHbmLTM3qCS4gXx7Msp7nkH",
+      "pool": "BfQTnDrW3XmRpyKgoCRkSPvMKFRAKdMZSc4PESMxiqiL",
+      "pool_name": "Downald-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -585,
+        "max": -545,
+        "bins_below": 40,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -545,
+      "bin_step": 100,
+      "volatility": 0.7,
+      "fee_tvl_ratio": 0.0899,
+      "initial_fee_tvl_24h": 0.0899,
+      "organic_score": 77,
+      "initial_value_usd": 34.66,
+      "deployed_at": "2026-03-23T03:10:10.048Z",
+      "out_of_range_since": "2026-03-23T07:35:01.926Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T08:20:12.141Z",
+      "notes": [
+        "Closed at 2026-03-23T08:20:12.141Z: agent decision"
+      ]
+    },
+    "6t1CCNSwCvGpGp5R4nXYL2A4JWYtbTkkhweTAG2fzCwd": {
+      "position": "6t1CCNSwCvGpGp5R4nXYL2A4JWYtbTkkhweTAG2fzCwd",
+      "pool": "C3YiV1Vqc1HQduaCJ2rEomdyQ4UknmnvP3ca1av3wFDM",
+      "pool_name": "Jellybean-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -567,
+        "max": -532,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -532,
+      "bin_step": 100,
+      "volatility": 0,
+      "fee_tvl_ratio": 0.1875,
+      "initial_fee_tvl_24h": 0.1875,
+      "organic_score": 66,
+      "initial_value_usd": 34.6,
+      "deployed_at": "2026-03-23T03:55:11.323Z",
+      "out_of_range_since": "2026-03-23T05:15:01.148Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T05:15:09.798Z",
+      "notes": [
+        "Closed at 2026-03-23T05:15:09.798Z: agent decision"
+      ]
+    },
+    "6kx49pxnm1FCw7e6Pg4S6eqUu4qKJjrdq9PipNoSprRx": {
+      "position": "6kx49pxnm1FCw7e6Pg4S6eqUu4qKJjrdq9PipNoSprRx",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -751,
+        "max": -705,
+        "bins_below": 46,
+        "bins_above": 0
+      },
+      "amount_sol": 0.46,
+      "amount_x": 0,
+      "active_bin_at_deploy": -705,
+      "bin_step": 80,
+      "volatility": 1.69,
+      "fee_tvl_ratio": 0.2261,
+      "initial_fee_tvl_24h": 0.2261,
+      "organic_score": 75,
+      "initial_value_usd": 39.905,
+      "deployed_at": "2026-03-23T04:50:10.007Z",
+      "out_of_range_since": "2026-03-23T04:55:00.698Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T05:15:09.811Z",
+      "notes": [
+        "Closed at 2026-03-23T05:15:09.811Z: agent decision"
+      ]
+    },
+    "BgzEUg9bkPNrNRCdi5k27GayrrPz1dVhoNbrizsHfBPt": {
+      "position": "BgzEUg9bkPNrNRCdi5k27GayrrPz1dVhoNbrizsHfBPt",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -723,
+        "max": -683,
+        "bins_below": 40,
+        "bins_above": 0
+      },
+      "amount_sol": 0.66,
+      "amount_x": 0,
+      "active_bin_at_deploy": -683,
+      "bin_step": 80,
+      "volatility": 4.51,
+      "fee_tvl_ratio": 0.227,
+      "initial_fee_tvl_24h": 0.227,
+      "organic_score": 75,
+      "initial_value_usd": 57.55,
+      "deployed_at": "2026-03-23T05:25:12.348Z",
+      "out_of_range_since": "2026-03-23T06:30:03.556Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T07:05:13.014Z",
+      "notes": [
+        "Closed at 2026-03-23T07:05:13.014Z: agent decision"
+      ]
+    },
+    "FKXbRzhE9c7dKB3pwDTzU8djNZif2HdGTnwgoi46PDWm": {
+      "position": "FKXbRzhE9c7dKB3pwDTzU8djNZif2HdGTnwgoi46PDWm",
+      "pool": "8EtW6HneUzxefKpVMJgQBtFerdYVzbrzKTzC5PzpQR29",
+      "pool_name": "CHIBI-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -359,
+        "max": -324,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.4,
+      "amount_x": 0,
+      "active_bin_at_deploy": -324,
+      "bin_step": 100,
+      "volatility": 2,
+      "fee_tvl_ratio": 0.0524,
+      "initial_fee_tvl_24h": 0.0524,
+      "organic_score": 92,
+      "initial_value_usd": 34.648,
+      "deployed_at": "2026-03-23T06:35:09.915Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T11:20:08.035Z",
+      "notes": [
+        "Auto-closed during state sync (not found on-chain)"
+      ]
+    },
+    "137QjsD1dyrwai8wfYX6aMwRntawCzBThBGrnfo6mf7K": {
+      "position": "137QjsD1dyrwai8wfYX6aMwRntawCzBThBGrnfo6mf7K",
+      "pool": "4ZeeNAHJJbLdoyaK7kjR3veLxCZmgjuBjr2AGS33Wu6f",
+      "pool_name": "PsyopAnime-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -445,
+        "max": -410,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.46,
+      "amount_x": 0,
+      "active_bin_at_deploy": -410,
+      "bin_step": 80,
+      "fee_tvl_ratio": 0.5888,
+      "initial_fee_tvl_24h": 0.5888,
+      "organic_score": 74,
+      "initial_value_usd": 39.38,
+      "deployed_at": "2026-03-23T07:10:08.499Z",
+      "out_of_range_since": "2026-03-23T07:30:00.875Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T07:55:10.373Z",
+      "notes": [
+        "Closed at 2026-03-23T07:55:10.373Z: agent decision"
+      ]
+    },
+    "gqfbGaMVyEEW32SS4EYvoX2mTo3YaKrnAmWhf7Vptke": {
+      "position": "gqfbGaMVyEEW32SS4EYvoX2mTo3YaKrnAmWhf7Vptke",
+      "pool": "14fsb1LMT2iXMKvZDkv9Rkht3SdyVc46YkR516WsW3VW",
+      "pool_name": "PERP-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -478,
+        "max": -435,
+        "bins_below": 43,
+        "bins_above": 0
+      },
+      "amount_sol": 0.46,
+      "amount_x": 0,
+      "active_bin_at_deploy": -435,
+      "bin_step": 100,
+      "volatility": 1.15,
+      "fee_tvl_ratio": 0.1747,
+      "initial_fee_tvl_24h": 0.1747,
+      "organic_score": 74,
+      "initial_value_usd": 39.69,
+      "deployed_at": "2026-03-23T08:00:21.033Z",
+      "out_of_range_since": "2026-03-23T08:25:01.017Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T08:45:20.197Z",
+      "notes": [
+        "Closed at 2026-03-23T08:45:20.197Z: agent decision"
+      ]
+    },
+    "9sLi57FQMiDdYVHvQPHMA9Mt1owLWFAhLtpUAsVUzTwq": {
+      "position": "9sLi57FQMiDdYVHvQPHMA9Mt1owLWFAhLtpUAsVUzTwq",
+      "pool": "2LPMCPg7YqbQu99sDsJWCVxGViUrSc3Nw12b2fi4u3pf",
+      "pool_name": "INCOME-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -659,
+        "max": -610,
+        "bins_below": 49,
+        "bins_above": 0
+      },
+      "amount_sol": 0.44,
+      "amount_x": 0,
+      "active_bin_at_deploy": -610,
+      "bin_step": 100,
+      "volatility": 2.11,
+      "fee_tvl_ratio": 0.4301,
+      "initial_fee_tvl_24h": 0.4301,
+      "organic_score": 68,
+      "deployed_at": "2026-03-23T08:30:09.665Z",
+      "out_of_range_since": "2026-03-23T08:35:00.858Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T08:50:21.644Z",
+      "notes": [
+        "Closed at 2026-03-23T08:50:21.644Z: agent decision"
+      ]
+    },
+    "DvWG7LhMXuGJekJt5826jdLY8wTVmL9LALY5fqTnaf4N": {
+      "position": "DvWG7LhMXuGJekJt5826jdLY8wTVmL9LALY5fqTnaf4N",
+      "pool": "7d51qGEeAKiPakkxLoHda9egShXQLJcjFYpHEcX4d3EM",
+      "pool_name": "Distorted-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -480,
+        "max": -411,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 1.03,
+      "amount_x": 0,
+      "active_bin_at_deploy": -411,
+      "bin_step": 100,
+      "volatility": 6.33,
+      "fee_tvl_ratio": 0.169,
+      "initial_fee_tvl_24h": 0.169,
+      "organic_score": 72,
+      "initial_value_usd": 88.72,
+      "deployed_at": "2026-03-23T08:55:09.035Z",
+      "out_of_range_since": "2026-03-23T09:20:02.121Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T09:40:19.983Z",
+      "notes": [
+        "Closed at 2026-03-23T09:40:19.983Z: agent decision"
+      ]
+    },
+    "ATAwT314QUER4B31C1rWfcKkLczgYbwQXhEodRwAQHx9": {
+      "position": "ATAwT314QUER4B31C1rWfcKkLczgYbwQXhEodRwAQHx9",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -662,
+        "max": -627,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.83,
+      "amount_x": 0,
+      "active_bin_at_deploy": -627,
+      "bin_step": 80,
+      "volatility": 0,
+      "fee_tvl_ratio": 0.0526,
+      "initial_fee_tvl_24h": 0.0526,
+      "organic_score": 75,
+      "deployed_at": "2026-03-23T09:00:08.358Z",
+      "out_of_range_since": "2026-03-23T09:10:01.493Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T09:40:19.972Z",
+      "notes": [
+        "Closed at 2026-03-23T09:40:19.972Z: agent decision"
+      ]
+    },
+    "Ab8yqAk11W6TpKEvFMfyu9Nkz9Wzt4szXUVaeGEG1xWn": {
+      "position": "Ab8yqAk11W6TpKEvFMfyu9Nkz9Wzt4szXUVaeGEG1xWn",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -665,
+        "max": -630,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 1.84,
+      "amount_x": 0,
+      "active_bin_at_deploy": -630,
+      "deployed_at": "2026-03-23T09:55:09.829Z",
+      "out_of_range_since": "2026-03-23T10:25:01.431Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T10:40:13.295Z",
+      "notes": [
+        "Closed at 2026-03-23T10:40:13.295Z: agent decision"
+      ]
+    },
+    "AMenQR6fLxrexyuyDrMT3vSJtB7St1bnhDDtcC3XdXFq": {
+      "position": "AMenQR6fLxrexyuyDrMT3vSJtB7St1bnhDDtcC3XdXFq",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -728,
+        "max": -673,
+        "bins_below": 55,
+        "bins_above": 0
+      },
+      "amount_sol": 1.76,
+      "amount_x": 0,
+      "active_bin_at_deploy": -673,
+      "bin_step": 80,
+      "volatility": 3,
+      "fee_tvl_ratio": 0.107,
+      "initial_fee_tvl_24h": 0.107,
+      "organic_score": 75,
+      "initial_value_usd": 151.22,
+      "deployed_at": "2026-03-23T10:45:30.682Z",
+      "out_of_range_since": "2026-03-23T10:50:01.113Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T11:11:07.357Z",
+      "notes": [
+        "Closed at 2026-03-23T11:11:07.357Z: agent decision"
+      ]
+    },
+    "2G5Mab9eBYoRFqSLJ1ud1Kh1ojM66qQ1xbmA2nFH4H6x": {
+      "position": "2G5Mab9eBYoRFqSLJ1ud1Kh1ojM66qQ1xbmA2nFH4H6x",
+      "pool": "14fsb1LMT2iXMKvZDkv9Rkht3SdyVc46YkR516WsW3VW",
+      "pool_name": "PERP-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -501,
+        "max": -449,
+        "bins_below": 52,
+        "bins_above": 0
+      },
+      "amount_sol": 0.99,
+      "amount_x": 0,
+      "active_bin_at_deploy": -449,
+      "bin_step": 100,
+      "fee_tvl_ratio": 0.164,
+      "initial_fee_tvl_24h": 0.164,
+      "organic_score": 78,
+      "deployed_at": "2026-03-23T11:00:09.144Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T11:20:08.035Z",
+      "notes": [
+        "Auto-closed during state sync (not found on-chain)"
+      ]
+    },
+    "7r5eWEzHQutAupwoY39hGnKsTFsrsRQ8n3n6BuUGh1eq": {
+      "position": "7r5eWEzHQutAupwoY39hGnKsTFsrsRQ8n3n6BuUGh1eq",
+      "pool": "BfQTnDrW3XmRpyKgoCRkSPvMKFRAKdMZSc4PESMxiqiL",
+      "pool_name": "Downald-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -644,
+        "max": -590,
+        "bins_below": 54,
+        "bins_above": 0
+      },
+      "amount_sol": 1.97,
+      "amount_x": 0,
+      "active_bin_at_deploy": -590,
+      "bin_step": 100,
+      "volatility": 2.81,
+      "fee_tvl_ratio": 0.1543,
+      "initial_fee_tvl_24h": 0.1543,
+      "organic_score": 78,
+      "initial_value_usd": 179.56,
+      "deployed_at": "2026-03-23T11:30:09.551Z",
+      "out_of_range_since": null,
+      "last_claim_at": "2026-03-23T12:50:12.006Z",
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T13:40:11.227Z",
+      "notes": [
+        "Claimed ~$? fees at 2026-03-23T12:50:12.006Z",
+        "Closed at 2026-03-23T13:40:11.227Z: agent decision"
+      ]
+    },
+    "4gseMpF2ByL3m9pfxcQcw4E4ajzrQGJTDY32NM2RjxKV": {
+      "position": "4gseMpF2ByL3m9pfxcQcw4E4ajzrQGJTDY32NM2RjxKV",
+      "pool": "BfQTnDrW3XmRpyKgoCRkSPvMKFRAKdMZSc4PESMxiqiL",
+      "pool_name": "Downald-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -644,
+        "max": -590,
+        "bins_below": 54,
+        "bins_above": 0
+      },
+      "amount_sol": 1.97,
+      "amount_x": 0,
+      "active_bin_at_deploy": -590,
+      "bin_step": 100,
+      "volatility": 2.81,
+      "fee_tvl_ratio": 0.1543,
+      "initial_fee_tvl_24h": 0.1543,
+      "organic_score": 78,
+      "initial_value_usd": 179.56,
+      "deployed_at": "2026-03-23T11:30:12.189Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T13:40:11.235Z",
+      "notes": [
+        "Closed at 2026-03-23T13:40:11.235Z: agent decision"
+      ]
+    },
+    "37icMxFwZruo8rTzWb5nSwWd4jKJHHSJ7vpTbHkEDK9c": {
+      "position": "37icMxFwZruo8rTzWb5nSwWd4jKJHHSJ7vpTbHkEDK9c",
+      "pool": "Gkt4hv9ycAmfnqeDoYDvede9CBaq78yWN2dDNDVZ9F66",
+      "pool_name": "one-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -765,
+        "max": -696,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 1.81,
+      "amount_x": 0,
+      "active_bin_at_deploy": -696,
+      "bin_step": 80,
+      "volatility": 5.06,
+      "fee_tvl_ratio": 0.3397,
+      "initial_fee_tvl_24h": 0.3397,
+      "organic_score": 75,
+      "initial_value_usd": 163.75,
+      "deployed_at": "2026-03-23T13:45:13.326Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": false,
+      "closed_at": null,
+      "notes": []
+    },
+    "8xRSxiAXVL75FZdnifJBok5fNFcTWaHuffpfQa4Q5bHg": {
+      "position": "8xRSxiAXVL75FZdnifJBok5fNFcTWaHuffpfQa4Q5bHg",
+      "pool": "14fsb1LMT2iXMKvZDkv9Rkht3SdyVc46YkR516WsW3VW",
+      "pool_name": "PERP-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -558,
+        "max": -489,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 1.23,
+      "amount_x": 0,
+      "active_bin_at_deploy": -489,
+      "bin_step": 100,
+      "volatility": 5,
+      "fee_tvl_ratio": 0.4181,
+      "initial_fee_tvl_24h": 0.4181,
+      "organic_score": 78,
+      "initial_value_usd": 111.28,
+      "deployed_at": "2026-03-23T13:50:13.804Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": false,
+      "closed_at": null,
+      "notes": []
+    },
+    "QV7npYxQQhyjbGQeahnb2AW3YiuZFhuJb43JW2VCSDA": {
+      "position": "QV7npYxQQhyjbGQeahnb2AW3YiuZFhuJb43JW2VCSDA",
+      "pool": "BfQTnDrW3XmRpyKgoCRkSPvMKFRAKdMZSc4PESMxiqiL",
+      "pool_name": "Downald-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -655,
+        "max": -620,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.99,
+      "amount_x": 0,
+      "active_bin_at_deploy": -620,
+      "bin_step": 100,
+      "fee_tvl_ratio": 0.1592,
+      "initial_fee_tvl_24h": 0.1592,
+      "organic_score": 75,
+      "initial_value_usd": 90.1593,
+      "deployed_at": "2026-03-23T14:05:12.020Z",
+      "out_of_range_since": "2026-03-23T14:30:01.900Z",
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": true,
+      "closed_at": "2026-03-23T15:05:24.714Z",
+      "notes": [
+        "Closed at 2026-03-23T15:05:24.714Z: agent decision"
+      ]
+    },
+    "9JLaTDK2gy7pSm1pbpLPtgiwUZytr7a7KVRG62mFZahq": {
+      "position": "9JLaTDK2gy7pSm1pbpLPtgiwUZytr7a7KVRG62mFZahq",
+      "pool": "9RRDon6SarD7uR7VdoWfgQMQBgk9fAHDXgkY2nMcU4ri",
+      "pool_name": "GHOST-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -1370,
+        "max": -1335,
+        "bins_below": 35,
+        "bins_above": 0
+      },
+      "amount_sol": 0.99,
+      "amount_x": 0,
+      "active_bin_at_deploy": -1335,
+      "bin_step": 80,
+      "volatility": 3,
+      "fee_tvl_ratio": 0.0362,
+      "initial_fee_tvl_24h": 0.0362,
+      "organic_score": 60,
+      "initial_value_usd": 90.56,
+      "deployed_at": "2026-03-23T15:10:11.892Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": false,
+      "closed_at": null,
+      "notes": []
+    }
+  },
+  "recentEvents": [
+    {
+      "ts": "2026-03-23T08:45:20.197Z",
+      "action": "close",
+      "position": "gqfbGaMVyEEW32SS4EYvoX2mTo3YaKrnAmWhf7Vptke",
+      "pool_name": "PERP-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T08:50:21.644Z",
+      "action": "close",
+      "position": "9sLi57FQMiDdYVHvQPHMA9Mt1owLWFAhLtpUAsVUzTwq",
+      "pool_name": "INCOME-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T08:55:09.035Z",
+      "action": "deploy",
+      "position": "DvWG7LhMXuGJekJt5826jdLY8wTVmL9LALY5fqTnaf4N",
+      "pool_name": "Distorted-SOL"
+    },
+    {
+      "ts": "2026-03-23T09:00:08.358Z",
+      "action": "deploy",
+      "position": "ATAwT314QUER4B31C1rWfcKkLczgYbwQXhEodRwAQHx9",
+      "pool_name": "one-SOL"
+    },
+    {
+      "ts": "2026-03-23T09:40:19.972Z",
+      "action": "close",
+      "position": "ATAwT314QUER4B31C1rWfcKkLczgYbwQXhEodRwAQHx9",
+      "pool_name": "one-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T09:40:19.983Z",
+      "action": "close",
+      "position": "DvWG7LhMXuGJekJt5826jdLY8wTVmL9LALY5fqTnaf4N",
+      "pool_name": "Distorted-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T09:55:09.829Z",
+      "action": "deploy",
+      "position": "Ab8yqAk11W6TpKEvFMfyu9Nkz9Wzt4szXUVaeGEG1xWn",
+      "pool_name": "one-SOL"
+    },
+    {
+      "ts": "2026-03-23T10:40:13.295Z",
+      "action": "close",
+      "position": "Ab8yqAk11W6TpKEvFMfyu9Nkz9Wzt4szXUVaeGEG1xWn",
+      "pool_name": "one-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T10:45:30.682Z",
+      "action": "deploy",
+      "position": "AMenQR6fLxrexyuyDrMT3vSJtB7St1bnhDDtcC3XdXFq",
+      "pool_name": "one-SOL"
+    },
+    {
+      "ts": "2026-03-23T11:00:09.144Z",
+      "action": "deploy",
+      "position": "2G5Mab9eBYoRFqSLJ1ud1Kh1ojM66qQ1xbmA2nFH4H6x",
+      "pool_name": "PERP-SOL"
+    },
+    {
+      "ts": "2026-03-23T11:11:07.357Z",
+      "action": "close",
+      "position": "AMenQR6fLxrexyuyDrMT3vSJtB7St1bnhDDtcC3XdXFq",
+      "pool_name": "one-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T11:30:09.551Z",
+      "action": "deploy",
+      "position": "7r5eWEzHQutAupwoY39hGnKsTFsrsRQ8n3n6BuUGh1eq",
+      "pool_name": "Downald-SOL"
+    },
+    {
+      "ts": "2026-03-23T11:30:12.189Z",
+      "action": "deploy",
+      "position": "4gseMpF2ByL3m9pfxcQcw4E4ajzrQGJTDY32NM2RjxKV",
+      "pool_name": "Downald-SOL"
+    },
+    {
+      "ts": "2026-03-23T13:40:11.227Z",
+      "action": "close",
+      "position": "7r5eWEzHQutAupwoY39hGnKsTFsrsRQ8n3n6BuUGh1eq",
+      "pool_name": "Downald-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T13:40:11.235Z",
+      "action": "close",
+      "position": "4gseMpF2ByL3m9pfxcQcw4E4ajzrQGJTDY32NM2RjxKV",
+      "pool_name": "Downald-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T13:45:13.326Z",
+      "action": "deploy",
+      "position": "37icMxFwZruo8rTzWb5nSwWd4jKJHHSJ7vpTbHkEDK9c",
+      "pool_name": "one-SOL"
+    },
+    {
+      "ts": "2026-03-23T13:50:13.804Z",
+      "action": "deploy",
+      "position": "8xRSxiAXVL75FZdnifJBok5fNFcTWaHuffpfQa4Q5bHg",
+      "pool_name": "PERP-SOL"
+    },
+    {
+      "ts": "2026-03-23T14:05:12.020Z",
+      "action": "deploy",
+      "position": "QV7npYxQQhyjbGQeahnb2AW3YiuZFhuJb43JW2VCSDA",
+      "pool_name": "Downald-SOL"
+    },
+    {
+      "ts": "2026-03-23T15:05:24.714Z",
+      "action": "close",
+      "position": "QV7npYxQQhyjbGQeahnb2AW3YiuZFhuJb43JW2VCSDA",
+      "pool_name": "Downald-SOL",
+      "reason": "agent decision"
+    },
+    {
+      "ts": "2026-03-23T15:10:11.892Z",
+      "action": "deploy",
+      "position": "9JLaTDK2gy7pSm1pbpLPtgiwUZytr7a7KVRG62mFZahq",
+      "pool_name": "GHOST-SOL"
+    }
+  ],
+  "lastUpdated": "2026-03-23T15:10:11.892Z",
+  "_lastBriefingDate": "2026-03-23"
+}
