@@ -45,11 +45,11 @@ export const config = {
   management: {
     minClaimAmount:        u.minClaimAmount        ?? 5,
     autoSwapAfterClaim:    u.autoSwapAfterClaim    ?? false,
-    outOfRangeBinsToClose: u.outOfRangeBinsToClose ?? 10,
+    outOfRangeBinsToClose: u.outOfRangeBinsToClose ?? 15,
     outOfRangeWaitMinutes: u.outOfRangeWaitMinutes ?? 30,
     minVolumeToRebalance:  u.minVolumeToRebalance  ?? 1000,
     emergencyPriceDropPct: u.emergencyPriceDropPct ?? -50,
-    takeProfitFeePct:      u.takeProfitFeePct      ?? 5,
+    takeProfitFeePct:      u.takeProfitFeePct      ?? 3,
     minFeePerTvl24h:       u.minFeePerTvl24h       ?? 7,
     minSolToOpen:          u.minSolToOpen          ?? 0.55,
     deployAmountSol:       u.deployAmountSol       ?? 0.5,

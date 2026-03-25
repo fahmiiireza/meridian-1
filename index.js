@@ -198,9 +198,14 @@ S5. strategy min_fee_per_tvl_24h is set AND fee_per_tvl < it AND age >= 60 → C
 
 TIER 3 — GLOBAL SAFETY NETS (fallback if no strategy rules or position has no strategy_profile):
 3. pnl_pct <= ${config.management.emergencyPriceDropPct}% → CLOSE (emergency stop loss)
-4. pnl_pct >= ${config.management.takeProfitFeePct}% → CLOSE (global take profit)
-5. active_bin > upper_bin + ${config.management.outOfRangeBinsToClose} → CLOSE (pumped far above range)
-6. active_bin > upper_bin AND oor_minutes >= ${config.management.outOfRangeWaitMinutes} → CLOSE (stale above range)
+4. pnl_pct >= ${config.management.takeProfitFeePct}% → SOFT CLOSE (take profit trigger):
+   - DEFAULT: CLOSE and take the profit.
+   - OVERRIDE: You MAY hold past ${config.management.takeProfitFeePct}% IF you have strong conviction it will go higher.
+     Valid reasons to hold: volume still spiking, fee_per_tvl is increasing, price trending up, position is young and printing.
+     Invalid reasons: "it might pump", hope, no data. If in doubt, TAKE THE PROFIT.
+   - HARD CAP: Always close at 2× the TP target (${config.management.takeProfitFeePct * 2}%). No exceptions.
+5. active_bin > upper_bin + ${config.management.outOfRangeBinsToClose} → CLOSE (pumped far out of range, >${config.management.outOfRangeBinsToClose} bins above)
+6. OOR STOP LOSS: (active_bin > upper_bin + ${config.management.outOfRangeBinsToClose} OR oor_minutes >= ${config.management.outOfRangeWaitMinutes}) → CLOSE (out of range too far or too long)
 7. fee_per_tvl_24h < ${config.management.minFeePerTvl24h} AND age_minutes >= 60 → CLOSE (fee yield too low)
 
 CLAIM RULE: If unclaimed_fee_usd >= ${config.management.minClaimAmount}, call claim_fees. Do not use any other threshold.
