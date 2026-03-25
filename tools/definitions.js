@@ -135,7 +135,7 @@ HARD RULES:
 - MANDATORY: Before deploying, you MUST have studied top LPers (study_top_lpers) on this pool.
 
 Guidelines (only when user hasn't specified):
-- Strategy: use the recommended expert strategy's lp_strategy (bid_ask, spot, or curve)
+- Strategy: use the recommended expert strategy's lp_strategy (bid_ask or spot)
 - Bins: depends on strategy — 5-20 for scalps, 35-100 for standard, 150-250 for wide grind. Max 1400 total.
 - Deposit: Usually single-sided SOL. Dual-sided only for megumi_ranging or explicit user request.
 - Always pass strategy_id so exit rules are tracked per position.
@@ -162,8 +162,8 @@ WARNING: This executes a real on-chain transaction. Check DRY_RUN mode.`,
           },
           strategy: {
             type: "string",
-            enum: ["bid_ask", "spot", "curve"],
-            description: "DLMM strategy type. If user specifies, use exactly what they said. Otherwise use the expert playbook recommendation. 'curve' is only for void_degen_curve strategy (extreme risk, upside-concentrated)."
+            enum: ["bid_ask", "spot"],
+            description: "DLMM strategy type. bid_ask for yunss_classic (after dump), spot for panda_wide_spot (breakout/runner). These are the only two strategies."
           },
           strategy_id: {
             type: "string",
@@ -275,6 +275,10 @@ WARNING: This executes a real on-chain transaction. Cannot be undone.`,
           position_address: {
             type: "string",
             description: "The position public key to close"
+          },
+          reason: {
+            type: "string",
+            description: "Why the position is being closed. ALWAYS provide a reason (e.g. 'Strategy TP 5% hit', 'OOR > 30min', 'Fee yield died', 'Emergency stop loss'). This is shown in the Telegram notification."
           },
           skip_swap: {
             type: "boolean",
@@ -746,7 +750,7 @@ The strategy will be available for selection before future deployments.`,
           id:           { type: "string", description: "Short slug e.g. 'overnight_classic_bid_ask', 'panda_strat'" },
           name:         { type: "string", description: "Human-readable name" },
           author:       { type: "string", description: "Strategy author/creator" },
-          lp_strategy:  { type: "string", enum: ["bid_ask", "spot", "curve"], description: "LP strategy type" },
+          lp_strategy:  { type: "string", enum: ["bid_ask", "spot"], description: "LP strategy type" },
           token_criteria: {
             type: "object",
             description: "Token selection criteria",

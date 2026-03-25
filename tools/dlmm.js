@@ -150,7 +150,7 @@ export async function deployPosition({
 
   const strategyType = strategyMap[activeStrategy];
   if (strategyType === undefined) {
-    throw new Error(`Invalid strategy: ${activeStrategy}. Use spot, curve, or bid_ask.`);
+    throw new Error(`Invalid strategy: ${activeStrategy}. Use bid_ask or spot.`);
   }
 
   // Calculate amounts
@@ -567,7 +567,7 @@ export async function claimFees({ position_address }) {
 }
 
 // ─── Close Position ────────────────────────────────────────────
-export async function closePosition({ position_address }) {
+export async function closePosition({ position_address, reason }) {
   position_address = normalizeMint(position_address);
   if (process.env.DRY_RUN === "true") {
     return { dry_run: true, would_close: position_address, message: "DRY RUN — no transaction sent" };
@@ -620,7 +620,7 @@ export async function closePosition({ position_address }) {
       txHashes.push(txHash);
     }
     log("close", `SUCCESS txs: ${txHashes.join(", ")}`);
-    recordClose(position_address, "agent decision");
+    recordClose(position_address, reason || "agent decision");
 
     // Record performance for learning
     const tracked = getTrackedPosition(position_address);
@@ -665,10 +665,10 @@ export async function closePosition({ position_address }) {
         initial_value_usd: initialUsd,
         minutes_in_range: minutesHeld - minutesOOR,
         minutes_held: minutesHeld,
-        close_reason: "agent decision",
+        close_reason: reason || "agent decision",
       });
 
-      return { success: true, position: position_address, pool: poolAddress, pool_name: tracked.pool_name || null, txs: txHashes, pnl_usd: pnlUsd, pnl_pct: pnlPct, base_mint: pool.lbPair.tokenXMint.toString() };
+      return { success: true, position: position_address, pool: poolAddress, pool_name: tracked.pool_name || null, txs: txHashes, pnl_usd: pnlUsd, pnl_pct: pnlPct, base_mint: pool.lbPair.tokenXMint.toString(), reason: reason || "agent decision" };
     }
 
     return { success: true, position: position_address, pool: poolAddress, pool_name: null, txs: txHashes, base_mint: pool.lbPair.tokenXMint.toString() };

@@ -1,7 +1,7 @@
 /**
  * Strategy Library — Expert DLMM playbook + user custom strategies.
  *
- * Built-in: 10 expert strategies from 4 proven DLMM LPers on Meteora.
+ * Built-in: 2 autonomous-optimized strategies from proven DLMM LPers.
  * Custom: Users can still add/remove their own strategies via Telegram.
  * The agent selects the best strategy per pool based on conditions + top LPer patterns.
  */
@@ -14,149 +14,12 @@ const STRATEGY_FILE = "./strategy-library.json";
 // ═══════════════════════════════════════════
 //  EXPERT PLAYBOOK — Built-in strategies
 // ═══════════════════════════════════════════
-// Internalized from 4 expert DLMM LPers. Always available.
-// Each strategy has conditions (when to use), position config, and exit rules.
+// Two strategies optimized for autonomous agent operation.
+// yunss_classic = primary (data-driven, patient, consistent wins)
+// panda_wide_spot = fallback (wide range safety net, fee grinding)
 
 export const EXPERT_PLAYBOOK = [
-  // ─── Voidgoesbrr ────────────────────────────────────────────────
-  {
-    id: "void_hyperfocused",
-    name: "Hyperfocused Scalp",
-    author: "Voidgoesbrr",
-    lp_strategy: "spot",
-    side: "sol",
-    risk_level: "degen",
-    conditions: {
-      min_volume_5m: 500000,
-      volatility_range: [3, null],
-      price_change_pct_range: [5, null],   // pumping hard
-      min_fee_tvl_ratio: 0.05,
-    },
-    position: {
-      bins_below: [10, 20],
-      bins_above: 0,
-    },
-    exit: {
-      take_profit_pct: 5,
-      stop_loss_pct: -10,
-      max_hold_minutes: 3,
-      oor_wait_minutes: 2,
-      min_fee_per_tvl_24h: null,
-    },
-    best_for: "Extreme volume spikes (>500k/5m), quick 1-3 minute fee scalps. Maximize capital per bin. In and out fast.",
-  },
-
-  {
-    id: "void_wave",
-    name: "Wave Enjoyer",
-    author: "Voidgoesbrr",
-    lp_strategy: "spot",
-    side: "sol",
-    risk_level: "high",
-    conditions: {
-      min_volume_5m: 100000,
-      volatility_range: [2, null],
-      price_change_pct_range: [2, null],   // pumping
-      min_fee_tvl_ratio: 0.03,
-    },
-    position: {
-      bins_below: [20, 40],
-      bins_above: 0,
-    },
-    exit: {
-      take_profit_pct: 15,
-      stop_loss_pct: -15,
-      max_hold_minutes: 20,
-      oor_wait_minutes: 5,
-      min_fee_per_tvl_24h: null,
-    },
-    best_for: "Capturing 1-2 retrace waves on pumping tokens with >100k vol/5m and good narrative/legit backers.",
-  },
-
-  {
-    id: "void_npc",
-    name: "NPC Set-and-Forget",
-    author: "Voidgoesbrr",
-    lp_strategy: "bid_ask",
-    side: "sol",
-    risk_level: "medium",
-    conditions: {
-      min_volume_5m: 50000,
-      volatility_range: [1, 5],
-      price_change_pct_range: [null, null],  // any trend
-      min_fee_tvl_ratio: 0.02,
-    },
-    position: {
-      bins_below: [60, 70],
-      bins_above: 0,
-    },
-    exit: {
-      take_profit_pct: 10,
-      stop_loss_pct: -25,
-      max_hold_minutes: 360,
-      oor_wait_minutes: 30,
-      min_fee_per_tvl_24h: 5,
-    },
-    best_for: "Default chill mode. Any decent pool with >50k vol/5m. 70-bin range, hold 30min-6hrs. Good narrative token.",
-  },
-
-  {
-    id: "void_degen_curve",
-    name: "Degenerate Curve",
-    author: "Voidgoesbrr",
-    lp_strategy: "curve",
-    side: "sol",
-    risk_level: "degen",
-    conditions: {
-      min_volume_5m: 200000,
-      volatility_range: [3, null],
-      price_change_pct_range: [5, null],   // strong uptrend
-      min_fee_tvl_ratio: 0.05,
-    },
-    position: {
-      bins_below: 0,
-      bins_above: [20, 50],
-    },
-    exit: {
-      take_profit_pct: 20,
-      stop_loss_pct: -15,
-      max_hold_minutes: 30,
-      oor_wait_minutes: 5,
-      min_fee_per_tvl_24h: null,
-    },
-    best_for: "Up-only charts after initial spot/bid-ask chase. Concentrate liquidity at upside. Highest risk/reward. Use after confirming strong pump.",
-  },
-
-  // ─── 0xMegumi (@eisbedog) ───────────────────────────────────────
-  {
-    id: "megumi_ranging",
-    name: "Megumuy Safe Ranging",
-    author: "0xMegumi",
-    lp_strategy: "bid_ask",
-    side: "sol",
-    risk_level: "low",
-    conditions: {
-      min_volume_5m: 30000,
-      volatility_range: [0.5, 3],
-      price_change_pct_range: [-10, 10],   // ranging/recovering
-      min_fee_tvl_ratio: 0.02,
-      min_mcap: 200000,
-    },
-    position: {
-      bins_below: [30, 50],
-      bins_above: 0,
-    },
-    exit: {
-      take_profit_pct: 20,
-      stop_loss_pct: -20,
-      max_hold_minutes: null,   // hold as long as it's ranging
-      oor_wait_minutes: 45,
-      min_fee_per_tvl_24h: 3,
-    },
-    best_for: "Ranging or recovering coins. Safe, daily compounding. Narrow bid-ask around support. Hold hours-days. Patient approach.",
-  },
-
-  // ─── 0xyunss ────────────────────────────────────────────────────
+  // ─── 0xyunss — Classic Bid-Ask After Dump ───────────────────────
   {
     id: "yunss_classic",
     name: "Classic Bid-Ask After Dump",
@@ -165,10 +28,10 @@ export const EXPERT_PLAYBOOK = [
     side: "sol",
     risk_level: "low",
     conditions: {
-      min_volume_5m: 30000,
+      min_volume_1h: 50000,
       volatility_range: [1, 8],
       price_change_pct_range: [null, -5],   // dumped
-      min_fee_tvl_ratio: 0.02,
+      min_fee_tvl_ratio: 0.2,              // 1h calibrated (was 0.02 at 5m)
       min_mcap: 500000,
       min_token_age_days: 2,
       requires_kol: true,
@@ -186,93 +49,10 @@ export const EXPERT_PLAYBOOK = [
       oor_wait_minutes: 30,
       min_fee_per_tvl_24h: 5,
     },
-    best_for: "THE bread-and-butter. Token dumped -30%+ from ATH with volume still alive. Accumulate token + fees. Hold hours to overnight. Needs mcap>500k, age>2d, KOL holder, clean bubble map.",
+    best_for: "THE bread-and-butter. Token dumped -30%+ from ATH with volume still alive. Single-side SOL bid-ask, accumulate token + fees. Hold hours to overnight. Exit at 5%+. REQUIRES: mcap>500k, age>2d, KOL holder, clean bubble map.",
   },
 
-  {
-    id: "yunss_spot_dump",
-    name: "Spot After Hard Dump",
-    author: "0xyunss",
-    lp_strategy: "spot",
-    side: "sol",
-    risk_level: "medium",
-    conditions: {
-      min_volume_5m: 50000,
-      volatility_range: [2, null],
-      price_change_pct_range: [null, -10],  // hard dump
-      min_fee_tvl_ratio: 0.03,
-    },
-    position: {
-      bins_below: [35, 60],
-      bins_above: 0,
-    },
-    exit: {
-      take_profit_pct: 15,
-      stop_loss_pct: -25,
-      max_hold_minutes: 360,
-      oor_wait_minutes: 20,
-      min_fee_per_tvl_24h: 5,
-    },
-    best_for: "Token dumps hard (-30% to -50%) but volume still decent. Catch retrace volume. Hold multi-hour. Target 10-30%.",
-  },
-
-  {
-    id: "yunss_tight_scalp",
-    name: "Tight Heart-Attack Scalp",
-    author: "0xyunss",
-    lp_strategy: "bid_ask",
-    side: "sol",
-    risk_level: "high",
-    conditions: {
-      min_volume_5m: 100000,
-      volatility_range: [2, null],
-      price_change_pct_range: [null, null],  // any, needs high volume
-      min_fee_tvl_ratio: 0.04,
-    },
-    position: {
-      bins_below: [5, 20],
-      bins_above: 0,
-    },
-    exit: {
-      take_profit_pct: 5,
-      stop_loss_pct: -15,
-      max_hold_minutes: 20,
-      oor_wait_minutes: 5,
-      min_fee_per_tvl_24h: null,
-    },
-    best_for: "Very tight scalp on high-volume runners (>100k vol/5m). 5-20 bins only. Target 5%+ in 5-20 minutes. Risky if late.",
-  },
-
-  {
-    id: "yunss_flip",
-    name: "Bid-Ask SOL → Flip to Token",
-    author: "0xyunss",
-    lp_strategy: "bid_ask",
-    side: "sol",
-    risk_level: "medium",
-    conditions: {
-      min_volume_5m: 50000,
-      volatility_range: [2, null],
-      price_change_pct_range: [null, -20],  // big dump
-      min_fee_tvl_ratio: 0.03,
-      min_mcap: 300000,
-    },
-    position: {
-      bins_below: [15, 30],
-      bins_above: 0,
-    },
-    exit: {
-      // Phase 1: accumulate token. Phase 2: flip to token-side.
-      take_profit_pct: 10,
-      stop_loss_pct: -20,
-      max_hold_minutes: 120,
-      oor_wait_minutes: 15,
-      min_fee_per_tvl_24h: null,
-    },
-    best_for: "TWO-PHASE: (1) SOL bid-ask at bottom, accumulate token + fees. (2) When pump starts and converts, withdraw and flip to token-side bid-ask with wide upside. Fees on the way down AND up.",
-  },
-
-  // ─── LogicalTA (@EvilPanda) ─────────────────────────────────────
+  // ─── LogicalTA (@EvilPanda) — Wide Spot Grind ───────────────────
   {
     id: "panda_wide_spot",
     name: "Panda Wide Spot Grind",
@@ -281,10 +61,10 @@ export const EXPERT_PLAYBOOK = [
     side: "sol",
     risk_level: "low",
     conditions: {
-      min_volume_5m: 50000,
+      min_volume_1h: 30000,
       volatility_range: [1, null],
       price_change_pct_range: [2, null],   // breakout/runner
-      min_fee_tvl_ratio: 0.02,
+      min_fee_tvl_ratio: 0.15,            // 1h calibrated
     },
     position: {
       bins_below: [150, 250],
@@ -297,7 +77,7 @@ export const EXPERT_PLAYBOOK = [
       oor_wait_minutes: 60,
       min_fee_per_tvl_24h: 3,
     },
-    best_for: "Breakout runners (15min supertrend break or new ATH). WIDE range (85-90% below) absorbs dumps while printing fees on every trade. Survives even -97% rugs. Exit on sideways chop, big green candle, or BB break. Fee grinding machine.",
+    best_for: "Breakout runners or any pool with sustained volume. WIDE range (85-90% below) absorbs dumps while printing fees on every trade. Survives even -97% rugs. Exit on sideways chop or volume death. Fee grinding machine. Use when no clear dump pattern for yunss_classic.",
   },
 ];
 
@@ -350,28 +130,32 @@ export function getStrategyProfile(strategyId) {
 
 /**
  * Score and rank expert strategies against current pool conditions.
- * Returns top 3 recommendations with scores and reasons.
+ * Returns both strategies sorted by match score.
  *
- * @param {Object} pool - Pool data from screening (volume_window, volatility, price_change_pct, fee_active_tvl_ratio, mcap)
- * @param {Object} lperPatterns - Optional top LPer aggregate patterns from study_top_lpers
- * @returns {Array} Top 3 strategies sorted by score descending
+ * Decision logic:
+ * - yunss_classic wins when: price is dumping, token has aged, mcap is healthy
+ * - panda_wide_spot wins when: price is pumping/breaking out, or no clear dump pattern
+ *
+ * @param {Object} pool - Pool data from screening
+ * @param {Object} lperPatterns - Optional top LPer aggregate patterns
+ * @returns {Array} Strategies sorted by score descending
  */
 export function recommendStrategy(pool, lperPatterns = null) {
   const scored = EXPERT_PLAYBOOK.map(strategy => {
     let score = 0;
     const reasons = [];
 
-    const vol5m = pool.volume_window ?? pool.volume ?? 0;
+    const volume = pool.volume_window ?? pool.volume ?? 0;
     const volatility = pool.volatility ?? 0;
     const priceChange = pool.price_change_pct ?? 0;
     const feeTvl = pool.fee_active_tvl_ratio ?? 0;
     const mcap = pool.mcap ?? 0;
 
     // Volume match (25 pts)
-    const minVol = strategy.conditions.min_volume_5m || 0;
-    if (vol5m >= minVol) {
+    const minVol = strategy.conditions.min_volume_1h || 0;
+    if (volume >= minVol) {
       score += 25;
-      if (vol5m >= minVol * 3) reasons.push("volume well above threshold");
+      if (volume >= minVol * 3) reasons.push("strong volume");
     } else {
       score -= 15;
     }
@@ -386,13 +170,13 @@ export function recommendStrategy(pool, lperPatterns = null) {
       score -= 10;
     }
 
-    // Price trend match (25 pts)
+    // Price trend match (25 pts) — this is the main differentiator
     const [minP, maxP] = strategy.conditions.price_change_pct_range || [null, null];
     const pOk = (minP == null || priceChange >= minP) && (maxP == null || priceChange <= maxP);
     if (pOk) {
       score += 25;
-      if (minP != null && priceChange >= minP) reasons.push("price trend matches");
-      if (maxP != null && priceChange <= maxP) reasons.push("dump pattern matches");
+      if (maxP != null && priceChange <= maxP) reasons.push("dump pattern detected");
+      if (minP != null && priceChange >= minP) reasons.push("breakout/runner pattern");
     } else {
       score -= 15;
     }
@@ -401,32 +185,27 @@ export function recommendStrategy(pool, lperPatterns = null) {
     const minFee = strategy.conditions.min_fee_tvl_ratio || 0;
     if (feeTvl >= minFee) {
       score += 15;
+      if (feeTvl >= minFee * 3) reasons.push("excellent fee/TVL");
     }
 
     // MCap match (5 pts)
     const minMcap = strategy.conditions.min_mcap || 0;
     if (mcap >= minMcap || minMcap === 0) {
       score += 5;
+    } else {
+      score -= 10;
+      reasons.push("mcap below threshold");
     }
 
     // LPer pattern alignment (10 pts)
     if (lperPatterns && lperPatterns.top_lper_count > 0) {
-      const avgHold = lperPatterns.avg_hold_hours ?? 0;
-      const isScalpStrategy = (strategy.exit.max_hold_minutes ?? 999) <= 30;
-      const isHoldStrategy = (strategy.exit.max_hold_minutes ?? 999) > 120 || strategy.exit.max_hold_minutes == null;
-
-      if (isScalpStrategy && lperPatterns.scalper_count > lperPatterns.holder_count) {
+      const isHoldStrategy = strategy.exit.max_hold_minutes == null;
+      if (isHoldStrategy && lperPatterns.holder_count > lperPatterns.scalper_count) {
         score += 10;
-        reasons.push("top LPers also scalping");
-      } else if (isHoldStrategy && lperPatterns.holder_count > lperPatterns.scalper_count) {
-        score += 10;
-        reasons.push("top LPers also holding long");
-      } else if (isScalpStrategy && avgHold < 2) {
+        reasons.push("top LPers holding long — aligns");
+      } else if (isHoldStrategy && (lperPatterns.avg_hold_hours ?? 0) > 4) {
         score += 5;
-        reasons.push("avg LPer hold time is short");
-      } else if (isHoldStrategy && avgHold > 4) {
-        score += 5;
-        reasons.push("avg LPer hold time is long");
+        reasons.push("avg LPer hold time supports patience");
       }
     }
 
@@ -446,52 +225,43 @@ export function recommendStrategy(pool, lperPatterns = null) {
     };
   });
 
-  return scored
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+  return scored.sort((a, b) => b.score - a.score);
 }
 
 // ─── Playbook Formatter (for system prompt) ───────────────────────
 
 /**
  * Format the expert playbook for injection into the system prompt.
- * Organized by market condition for quick LLM lookup.
  */
 export function getPlaybook() {
-  return `STRATEGY PLAYBOOK — Expert LP Knowledge (4 proven DLMM LPers)
-You have internalized the strategies of Voidgoesbrr, 0xMegumi, 0xyunss, and LogicalTA.
-Match pool conditions + top LPer patterns to the best strategy. Pass the strategy_id to deploy_position.
+  return `STRATEGY PLAYBOOK — Two Autonomous Strategies (from 0xyunss & LogicalTA)
 
-VOLUME SPIKING (>500k/5m, price pumping hard):
-  void_hyperfocused — spot, SOL-only, 10-20 bins. Hold 1-3 min MAX. Exit immediately on profit or wrong direction.
-  void_wave — spot, SOL-only, 20-40 bins. Hold 10-20 min. Capture 1-2 retrace waves. Need good narrative.
+You have TWO strategies. Pick the one that fits the pool conditions. Always pass strategy_id to deploy_position.
 
-UP-ONLY / STRONG UPTREND (confirmed pump, >200k vol):
-  void_degen_curve — curve, SOL-only, 20-50 bins ABOVE active bin. Concentrate liquidity at upside. Highest risk/reward. Only after confirming strong pump.
+1. yunss_classic — PRIMARY (bid_ask, SOL-only)
+   WHEN: Token has DUMPED from recent high (price_change negative). Volume still alive. Mature token.
+   HOW: Single-side SOL bid-ask. Bins = volatility × 10, clamped [35-100]. Accumulate token + fees as price drops.
+   EXIT: Take profit at 5%. Stop loss at -30%. OOR > 30min → close. Fee/TVL < 5% after 1hr → close.
+   REQUIRES: mcap > 500k, token age > 2 days, KOL holder, clean holder distribution.
+   EDGE: You're buying the dip with concentrated capital. Fees compound while you wait for the bounce.
 
-TOKEN DUMPED (-30%+ from recent high, volume alive):
-  yunss_classic — bid_ask, SOL-only, bins=volatility×10 (35-100 range). THE bread-and-butter. Accumulate token+fees. Hold hours to overnight. Exit at 5%+. REQUIRES: mcap>500k, age>2d, KOL holder, clean bubble map.
-  yunss_spot_dump — spot, SOL-only, 35-60 bins. Hard dumps with decent volume. Hold multi-hour. Target 10-30%.
-  yunss_flip — bid_ask SOL at bottom → accumulate → flip to token-side on pump. TWO-PHASE play.
+2. panda_wide_spot — FALLBACK / SAFETY NET (spot, SOL-only)
+   WHEN: Token is PUMPING, breaking out, or no clear dump pattern for yunss_classic. Any runner with volume.
+   HOW: Single-side SOL spot with WIDE range (150-250 bins, ~85-90% below). Absorbs massive dumps.
+   EXIT: No fixed TP — hold until trend dies (chop/sideways/volume death). Stop loss at -40%. OOR > 60min → close. Fee/TVL < 3% after 1hr → close.
+   EDGE: Wide range = rug shield. Survives -97% dumps. Prints fees on every trade regardless of direction.
 
-RANGING / RECOVERING (sideways, steady volume):
-  megumi_ranging — bid_ask, SOL-only, 30-50 bins. Safe daily compound. Narrow range around support. Hold hours-days. Patient.
-  void_npc — bid_ask, SOL-only, 60-70 bins. Set-and-forget default. Any decent pool >50k vol. Hold 30min-6hrs.
+DECISION FLOW:
+- Price dumping + mature token + healthy holders → yunss_classic
+- Price pumping / breakout / new runner / unsure → panda_wide_spot
+- If both score similarly, prefer yunss_classic (tighter range = higher fee concentration)
 
-BREAKOUT / RUNNER (supertrend break, new ATH):
-  panda_wide_spot — spot, SOL-only, 150-250 bins (WIDE). Absorbs dumps while printing fees. Survives -97% rugs. Exit on sideways chop or BB break. Fee grind machine.
-
-QUICK SCALPS (any condition, high volume >100k):
-  yunss_tight_scalp — bid_ask, SOL-only, 5-20 bins. Very tight. Target 5%+ in 5-20 min. Risky if late.
-
-EXPERT RULES TO ALWAYS FOLLOW:
+RULES FROM THE EXPERTS:
 - Never open at ATH — you become exit liquidity (0xyunss)
-- Range sizing: volatility × 5 for scalps, volatility × 10 for patient holds (0xyunss)
-- Fees/active TVL > 5% required for multi-hour holds (0xyunss)
-- Wide range = rug shield — survives dumps (LogicalTA)
-- Start small, compound up (all four experts)
-- Take profit when given, don't be greedy — "decide when it's enough" (all four)
-- If wrong direction, cut immediately — don't hope (Voidgoesbrr)`;
+- Range = volatility × 10 for yunss_classic (0xyunss)
+- Fees/active TVL must be healthy — >5% for yunss, >3% for panda (both)
+- Wide range = rug shield (LogicalTA)
+- Take profit when given, don't be greedy (both)`;
 }
 
 // ═══════════════════════════════════════════

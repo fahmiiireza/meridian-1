@@ -9,7 +9,7 @@
   "positionSizePct": 0.35,
   "strategy": "bid_ask",
   "binsBelow": 69,
-  "timeframe": "5m",
+  "timeframe": "1h",
   "minTvl": 5000,
   "maxTvl": 150000,
   "minVolume": 250,

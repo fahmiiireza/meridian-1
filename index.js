@@ -379,16 +379,15 @@ DECISION RULES:
 
 STEPS:
 1. Pick the best candidate. If none pass, report why and stop.
-2. Review the strategy_rec for your chosen pool. Validate against top_lpers data:
-   - If top LPers are scalping (avg_hold < 1h), prefer short-hold strategies (void_hyperfocused, yunss_tight_scalp).
-   - If top LPers are holding (avg_hold > 4h), prefer patient strategies (yunss_classic, megumi_ranging, panda_wide_spot).
-   - If no LPer data, trust the strategy recommendation.
+2. Choose strategy based on pool conditions + top_lpers data:
+   - Price DUMPING + mature token (mcap>500k, age>2d) → yunss_classic (bid_ask, bins = volatility×10)
+   - Price PUMPING / breakout / no clear dump → panda_wide_spot (spot, 150-250 bins wide)
+   - If top LPers are holding long (avg_hold > 4h), that confirms patient strategies work in this pool.
+   - If no LPer data, trust the strategy_rec score.
 3. Call study_top_lpers if not pre-loaded (MANDATORY — never deploy without studying top LPers).
-4. Call deploy_position with ${deployAmount} SOL. Use the chosen strategy's bins and lp_strategy. Always pass strategy_id.
-   - For yunss_classic: bins_below = round(volatility × 10), clamped to [35, 100].
-   - For panda_wide_spot: bins_below = 150-250 (wide range).
-   - For scalp strategies: bins_below = 5-20.
-   - For void_npc / megumi_ranging: bins_below = 40-70.
+4. Call deploy_position with ${deployAmount} SOL. Always pass strategy_id.
+   - yunss_classic: strategy=bid_ask, bins_below = round(volatility × 10) clamped [35, 100], bins_above=0
+   - panda_wide_spot: strategy=spot, bins_below = 150-250 (wider for higher volatility), bins_above=0
 5. Report: pool name, strategy chosen, bins, and reasoning.
       `, config.llm.maxSteps, [], "SCREENER", config.llm.screeningModel, 2048);
       screenReport = content;

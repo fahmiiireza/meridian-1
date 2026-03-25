@@ -24,17 +24,17 @@ export const config = {
 
   // ─── Pool Screening Thresholds ───────────
   screening: {
-    minFeeActiveTvlRatio: u.minFeeActiveTvlRatio ?? 0.05,
+    minFeeActiveTvlRatio: u.minFeeActiveTvlRatio ?? 0.15,
     minTvl:            u.minTvl            ?? 10_000,
     maxTvl:            u.maxTvl            ?? 150_000,
-    minVolume:         u.minVolume         ?? 500,
+    minVolume:         u.minVolume         ?? 10_000,
     minOrganic:        u.minOrganic        ?? 60,
     minHolders:        u.minHolders        ?? 500,
     minMcap:           u.minMcap           ?? 150_000,
     maxMcap:           u.maxMcap           ?? 10_000_000,
     minBinStep:        u.minBinStep        ?? 80,
     maxBinStep:        u.maxBinStep        ?? 125,
-    timeframe:         u.timeframe         ?? "5m",
+    timeframe:         u.timeframe         ?? "1h",
     category:          u.category          ?? "trending",
     minTokenFeesSol:   u.minTokenFeesSol   ?? 30,  // global fees paid (priority+jito tips). below = bundled/scam
     maxBundlersPct:    u.maxBundlersPct    ?? 30,  // max bundlers % in top 100 holders
