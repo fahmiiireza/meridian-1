@@ -4614,16 +4614,38 @@
       "closed": false,
       "closed_at": null,
       "notes": []
+    },
+    "7rMe4L1Aw6tM25bDcC813piX9eWX5gCaajRNyUFVvccT": {
+      "position": "7rMe4L1Aw6tM25bDcC813piX9eWX5gCaajRNyUFVvccT",
+      "pool": "CViKfBKrprtC1syEsftqJkJQKMQ13cxzVQZDhSn5x5Az",
+      "pool_name": "VNUT-SOL",
+      "strategy": "bid_ask",
+      "bin_range": {
+        "min": -450,
+        "max": -381,
+        "bins_below": 69,
+        "bins_above": 0
+      },
+      "amount_sol": 1.5,
+      "amount_x": 0,
+      "active_bin_at_deploy": -381,
+      "bin_step": 125,
+      "volatility": 5,
+      "fee_tvl_ratio": 0.1472,
+      "initial_fee_tvl_24h": 0.1472,
+      "organic_score": 87,
+      "initial_value_usd": 138.825,
+      "deployed_at": "2026-03-25T09:00:12.266Z",
+      "out_of_range_since": null,
+      "last_claim_at": null,
+      "total_fees_claimed_usd": 0,
+      "rebalance_count": 0,
+      "closed": false,
+      "closed_at": null,
+      "notes": []
     }
   },
   "recentEvents": [
-    {
-      "ts": "2026-03-25T05:10:20.657Z",
-      "action": "close",
-      "position": "9nDyHcuPWJj5ny1EHhCAfZFGBZQwkxApBZZBdhphco4a",
-      "pool_name": "CAPTCHA-SOL",
-      "reason": "agent decision"
-    },
     {
       "ts": "2026-03-25T05:15:09.942Z",
       "action": "deploy",
@@ -4747,8 +4769,14 @@
       "action": "deploy",
       "position": "767TUZ7eUpRXRKUAas2dMhZtjvEBcww3JZeAazn7wHvM",
       "pool_name": "VNUT-SOL"
+    },
+    {
+      "ts": "2026-03-25T09:00:12.266Z",
+      "action": "deploy",
+      "position": "7rMe4L1Aw6tM25bDcC813piX9eWX5gCaajRNyUFVvccT",
+      "pool_name": "VNUT-SOL"
     }
   ],
-  "lastUpdated": "2026-03-25T08:55:00.582Z",
+  "lastUpdated": "2026-03-25T09:00:12.266Z",
   "_lastBriefingDate": "2026-03-25"
 }
