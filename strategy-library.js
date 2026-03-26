@@ -28,10 +28,10 @@ export const EXPERT_PLAYBOOK = [
     side: "sol",
     risk_level: "low",
     conditions: {
-      min_volume_1h: 50000,
+      min_volume_15m: 10000,
       volatility_range: [1, 8],
       price_change_pct_range: [null, -5],   // dumped
-      min_fee_tvl_ratio: 0.2,              // 1h calibrated (was 0.02 at 5m)
+      min_fee_tvl_ratio: 0.05,             // 15m calibrated
       min_mcap: 500000,
       min_token_age_days: 2,
       requires_kol: true,
@@ -61,10 +61,10 @@ export const EXPERT_PLAYBOOK = [
     side: "sol",
     risk_level: "low",
     conditions: {
-      min_volume_1h: 30000,
+      min_volume_15m: 5000,
       volatility_range: [1, null],
       price_change_pct_range: [2, null],   // breakout/runner
-      min_fee_tvl_ratio: 0.15,            // 1h calibrated
+      min_fee_tvl_ratio: 0.04,            // 15m calibrated
     },
     position: {
       bins_below: [150, 250],
@@ -152,7 +152,7 @@ export function recommendStrategy(pool, lperPatterns = null) {
     const mcap = pool.mcap ?? 0;
 
     // Volume match (25 pts)
-    const minVol = strategy.conditions.min_volume_1h || 0;
+    const minVol = strategy.conditions.min_volume_15m || 0;
     if (volume >= minVol) {
       score += 25;
       if (volume >= minVol * 3) reasons.push("strong volume");

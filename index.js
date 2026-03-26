@@ -387,6 +387,7 @@ ${candidateContext}
 DECISION RULES:
 - HARD SKIP if fees < ${config.screening.minTokenFeesSol} SOL (bundled/scam)
 - HARD SKIP if top10 > ${config.screening.maxTop10Pct}% OR bots > ${config.screening.maxBundlersPct}%
+- PREFER tokens older than ${config.screening.minTokenAgeHours} hours. Fresh launches still in price discovery are riskier. If age is unknown, rely on other signals (holders count, organic score, narrative strength) — high holders + high organic usually means the token has been around a while.
 ${config.screening.blockedLaunchpads.length ? `- HARD SKIP if launchpad is any of: ${config.screening.blockedLaunchpads.join(", ")}` : ""}
 - SKIP if narrative is empty/null or pure hype with no specific story (unless smart wallets present)
 - Bots 5–25% are normal, not a skip reason on their own

@@ -24,21 +24,22 @@ export const config = {
 
   // ─── Pool Screening Thresholds ───────────
   screening: {
-    minFeeActiveTvlRatio: u.minFeeActiveTvlRatio ?? 0.15,
+    minFeeActiveTvlRatio: u.minFeeActiveTvlRatio ?? 0.05,
     minTvl:            u.minTvl            ?? 10_000,
     maxTvl:            u.maxTvl            ?? 150_000,
-    minVolume:         u.minVolume         ?? 10_000,
+    minVolume:         u.minVolume         ?? 2_000,
     minOrganic:        u.minOrganic        ?? 60,
     minHolders:        u.minHolders        ?? 500,
     minMcap:           u.minMcap           ?? 150_000,
     maxMcap:           u.maxMcap           ?? 10_000_000,
     minBinStep:        u.minBinStep        ?? 80,
     maxBinStep:        u.maxBinStep        ?? 125,
-    timeframe:         u.timeframe         ?? "1h",
+    timeframe:         u.timeframe         ?? "15m",
     category:          u.category          ?? "trending",
     minTokenFeesSol:   u.minTokenFeesSol   ?? 30,  // global fees paid (priority+jito tips). below = bundled/scam
     maxBundlersPct:    u.maxBundlersPct    ?? 30,  // max bot/bundler holders % (from Jupiter audit)
     maxTop10Pct:       u.maxTop10Pct       ?? 60,  // max top 10 holders concentration
+    minTokenAgeHours:  u.minTokenAgeHours  ?? 10,  // skip tokens younger than this (too early, price discovery)
     blockedLaunchpads: u.blockedLaunchpads ?? [],  // e.g. ["letsbonk.fun", "pump.fun"]
   },
 
