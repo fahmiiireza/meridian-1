@@ -106,7 +106,7 @@ This is an on-chain call via the SDK. Returns:
 - price: human-readable price (token X per token Y)
 - pricePerLamport: raw price in lamports
 
-Always call this before deploying a position to get the freshest price.`,
+Only call this if you need the current price to calculate a specific bin range (e.g. user requested a % range). Do NOT call before every deploy — deploy_position fetches the active bin internally.`,
       parameters: {
         type: "object",
         properties: {
@@ -154,7 +154,7 @@ WARNING: This executes a real on-chain transaction. Check DRY_RUN mode.`,
           },
           amount_x: {
             type: "number",
-            description: "Amount of base token to deposit (if doing dual-sided or base-only)."
+            description: "Amount of base token to deposit (if doing dual-sided)."
           },
           amount_sol: {
             type: "number",
@@ -184,9 +184,9 @@ WARNING: This executes a real on-chain transaction. Check DRY_RUN mode.`,
           volatility: { type: "number", description: "Pool volatility at deploy time" },
           fee_tvl_ratio: { type: "number", description: "fee/TVL ratio at deploy time" },
           organic_score: { type: "number", description: "Base token organic score at deploy time" },
-          initial_value_usd: { type: "number", description: "Estimated USD value being deployed" }
+          initial_value_usd: { type: "number", description: "USD value being deployed — REQUIRED for accurate PnL tracking" }
         },
-        required: ["pool_address"]
+        required: ["pool_address", "initial_value_usd"]
       }
     }
   },
@@ -1104,5 +1104,44 @@ Returns median values for minTvl, minHolders, takeProfitFeePct, stopLossPct, etc
         properties: {}
       }
     }
+  },
+
+  // ═══════════════════════════════════════════
+  //  LIQUIDITY MANAGEMENT TOOLS
+  // ═══════════════════════════════════════════
+  {
+    type: "function",
+    function: {
+      name: "withdraw_liquidity",
+      description: "Remove partial or full liquidity from an existing position WITHOUT closing it. Use bps=5000 to take 50% off the table (partial harvest), or bps=10000 for full withdrawal before re-seeding at a new price level. Position account stays open.",
+      parameters: {
+        type: "object",
+        properties: {
+          position_address: { type: "string", description: "Position public key to withdraw from" },
+          pool_address: { type: "string", description: "Pool address the position belongs to" },
+          bps: { type: "number", description: "Basis points of liquidity to remove. 5000=50%, 10000=100%. Default 10000." },
+          claim_fees: { type: "boolean", description: "Claim accumulated swap fees before withdrawal. Default true." },
+        },
+        required: ["position_address", "pool_address"],
+      },
+    },
+  },
+  {
+    type: "function",
+    function: {
+      name: "add_liquidity",
+      description: "Add tokens to an existing position without closing it. Use for fee compounding (claim fees then add them back) or re-seeding after a withdrawal. Liquidity is distributed within the position's existing bin range using the specified strategy shape.",
+      parameters: {
+        type: "object",
+        properties: {
+          position_address: { type: "string", description: "Existing position public key to add liquidity to" },
+          pool_address: { type: "string", description: "Pool address the position belongs to" },
+          amount_x: { type: "number", description: "Base token amount to add (0 if adding only SOL)" },
+          amount_y: { type: "number", description: "SOL amount to add (0 if adding only token)" },
+          strategy: { type: "string", enum: ["spot", "curve", "bid_ask"], description: "Distribution shape for the added liquidity. Default: spot" },
+        },
+        required: ["position_address", "pool_address"],
+      },
+    },
   },
 ];

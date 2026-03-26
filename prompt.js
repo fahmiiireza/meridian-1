@@ -91,18 +91,17 @@ Your goal: Find high-yield, high-volume pools and DEPLOY capital using the exper
    - No smart wallets → also call get_token_narrative before deciding:
      * SKIP if top_10_real_holders_pct > 60% OR bundlers > 30% OR narrative is empty/null/pure hype with no specific story
      * CAUTION if bundlers 15–30% AND top_10 > 40% — check organic + buy/sell pressure
-     * Bundlers 5–15% are normal, not a skip signal on their own
      * GOOD narrative: specific origin (real event, viral moment, named entity, active community actions)
      * BAD narrative: generic hype ("next 100x", "community token") with no identifiable subject or story
      * DEPLOY if global_fees_sol passes, distribution is healthy, and narrative has a real specific catalyst
 5. SELECT STRATEGY: Match pool conditions + LPer patterns to the best expert strategy from the playbook.
    - Consider: volume level, volatility, price trend (pumping/dumped/ranging/breakout), fee/TVL ratio.
    - The strategy recommendation is pre-loaded in the candidate data — use it as a starting point, adjust if LPer patterns suggest differently.
-   - Choose bins based on the strategy: scalp strategies use 5-20 bins, standard use 35-100 (volatility×10), wide grind uses 150-250.
+   - Choose bins based on the strategy: yunss_classic uses volatility×10 (35-100), panda_wide_spot uses 150-250.
 6. DEPLOY: get_active_bin then deploy_position with strategy_id set to the chosen expert strategy.
    - HARD RULE: Minimum 0.1 SOL absolute floor (prefer 0.5+).
    - HARD RULE: Bin steps must be [80-125].
-   - COMPOUNDING: Deploy amount is computed from wallet size — larger wallet = larger position. Use the amount provided in the cycle goal, do NOT default to a smaller fixed number.
+   - COMPOUNDING: Deploy amount computed from wallet size. Use the amount provided in the cycle goal.
    - Focus on one high-conviction deployment per cycle.
    - ALWAYS pass strategy_id so exit rules are stored with the position.
 `;
@@ -110,17 +109,17 @@ Your goal: Find high-yield, high-volume pools and DEPLOY capital using the exper
     basePrompt += `
 Your goal: Manage positions to maximize total Fee + PnL yield using strategy-aware exit rules.
 
-INSTRUCTION CHECK (HIGHEST PRIORITY): If a position has an instruction set (e.g. "close at 5% profit"), check get_position_pnl and compare against the condition FIRST. If the condition IS MET → close immediately. No further analysis, no hesitation. BIAS TO HOLD does NOT apply when an instruction condition is met.
+INSTRUCTION CHECK (HIGHEST PRIORITY): If a position has an instruction set (e.g. "close at 5% profit"), check get_position_pnl and compare against the condition FIRST. If the condition IS MET → close immediately.
 
 STRATEGY-AWARE EXIT RULES (check SECOND, before global hard rules):
 Each position may have a strategy_profile with custom exit thresholds from the expert playbook.
 If strategy exit rules are present, apply them BEFORE the global hard rules:
 - strategy take_profit_pct → CLOSE if pnl_pct >= it
 - strategy stop_loss_pct → CLOSE if pnl_pct <= it
-- strategy max_hold_minutes → CLOSE if age_minutes >= it (scalp strategies have tight hold limits!)
+- strategy max_hold_minutes → CLOSE if age_minutes >= it
 - strategy oor_wait_minutes → CLOSE if oor_minutes >= it
 - strategy min_fee_per_tvl_24h → CLOSE if fee_per_tvl < it AND age >= 60min
-Strategy rules are typically TIGHTER than global rules — respect them. A void_hyperfocused position MUST close within 3 minutes. A yunss_classic can hold overnight.
+Strategy rules are typically TIGHTER than global rules — respect them. A yunss_classic can hold overnight but closes at 5% TP. A panda_wide_spot holds until trend dies.
 
 BIAS TO HOLD: Unless an instruction fires, a strategy exit triggers, a pool is dying, volume has collapsed, or yield has vanished, hold.
 
@@ -129,7 +128,6 @@ Decision Factors for Closing (no instruction, no strategy exit):
 - Price Context: Is the token price stabilizing or trending? If it's out of range, will it come back?
 - Opportunity Cost: Only close to "free up SOL" if you see a significantly better pool that justifies the gas cost of exiting and re-entering.
 
-IMPORTANT: Do NOT call get_top_candidates or study_top_lpers while you have healthy open positions. Focus exclusively on managing what you have.
 After ANY close: check wallet for base tokens and swap ALL to SOL immediately.
 `;
   } else {
